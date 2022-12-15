@@ -1,0 +1,10 @@
+.public-header{
+  padding:15px 0;
+  position: sticky;
+  border-bottom: 1px solid #ABABAB;
+  z-index: 9;
+  .logo{
+    max-width: 300px;
+    width: 50%;
+  }
+}

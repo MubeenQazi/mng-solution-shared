@@ -1,0 +1,13 @@
+.public-header {
+  padding: 15px 0;
+  position: -webkit-sticky;
+  position: sticky;
+  border-bottom: 1px solid #ABABAB;
+  z-index: 9;
+}
+
+.public-header .logo {
+  max-width: 300px;
+  width: 50%;
+}
+/*# sourceMappingURL=PublicHeader.css.map */
