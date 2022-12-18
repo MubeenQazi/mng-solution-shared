@@ -1,6 +1,4 @@
 import {AppImages} from "../../shared/images";
-import GroupWorkOutlinedIcon from "@mui/icons-material/GroupWorkOutlined";
-
 export const SubModAppImages = AppImages;
 
 export enum BillingType {
@@ -27,12 +25,3 @@ export enum Modules {
   Support = "support",
   Organization = "organization"
 }
-
-export const SideBarRoutes = [
-  {
-    text: "Organizations",
-    icon: GroupWorkOutlinedIcon,
-    to: "/organization",
-    activeSideBar: Modules.Organization
-  },
-];
