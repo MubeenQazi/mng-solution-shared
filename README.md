@@ -1,3 +1,3 @@
 # mng-solution-shared
 
-Submodule updated
+Submodule updated from source
