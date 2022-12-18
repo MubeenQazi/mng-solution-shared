@@ -80,7 +80,7 @@ const Sidebar = () => {
         </DrawerHeader>
         <List className="sidebarnav">
           {SideBarRoutesList.map((item) => {
-            const {text, to, icon: Icon, activeSideBar} = item;
+            const {text, to, icon: Icon, activeSideBar} = item as any;
             return (
               <ListItem
                 component={Link}
