@@ -1,15 +1,12 @@
+/** @format */
+
 import React from "react";
 import "./Header.scss";
 import Menu from "@mui/material/Menu";
-import {
-  Box,
-  ListItemIcon,
-  MenuItem,
-  Tooltip,
-} from "@mui/material";
+import { Box, ListItemIcon, MenuItem, Tooltip } from "@mui/material";
 import Logout from "@mui/icons-material/Logout";
 import Button from "@mui/material/Button";
-import {useLocation, useNavigate} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import MenuIcon from "@mui/icons-material/Menu";
 import Table from "@mui/material/Table";
@@ -20,8 +17,18 @@ import PersonIcon from "@mui/icons-material/Person";
 
 const Header = () => {
   const navigate = useNavigate();
+
   const logout = () => {
-    navigate("/login?a=signout");
+    // dispatch(doLogout());
+
+    axios
+      .get("https://portal.msolcsptest.com/app/signout/portal")
+      .then(function (response) {
+        sessionStorage.removeItem("display_name");
+        sessionStorage.removeItem("email");
+        sessionStorage.removeItem("expires_on");
+        navigate("/login?e=signout");
+      });
   };
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -56,11 +63,12 @@ const Header = () => {
     pageHeading = firstHeading + " " + secondHeading;
   }
 
-  pageHeading = pageHeading !== "" ? pageHeading
-    .toLowerCase()
-    .replace(/\b[a-z]/g, function (letter) {
-      return letter.toUpperCase();
-    }) : "Dashboard";
+  pageHeading =
+    pageHeading !== ""
+      ? pageHeading.toLowerCase().replace(/\b[a-z]/g, function (letter) {
+          return letter.toUpperCase();
+        })
+      : "Dashboard";
 
   function handleShowSideBar() {
     let element = document.querySelectorAll(
@@ -86,12 +94,16 @@ const Header = () => {
             <TableRow className="row-heading-text-close-button">
               <TableCell
                 className="responsive-menu-hamburger"
-                sx={{textDecoration: "none"}}
+                sx={{ textDecoration: "none" }}
               >
-                <MenuIcon fontSize="large" className="sidebar-close-icon" onClick={handleShowSideBar}/>
+                <MenuIcon
+                  fontSize="large"
+                  className="sidebar-close-icon"
+                  onClick={handleShowSideBar}
+                />
               </TableCell>
               <TableCell align="left">
-                <h1 style={{fontFamily: "Raleway"}}>{pageHeading}</h1>
+                <h1 style={{ fontFamily: "Raleway" }}>{pageHeading}</h1>
               </TableCell>
             </TableRow>
           </TableBody>
@@ -106,10 +118,10 @@ const Header = () => {
             aria-haspopup="true"
             aria-controls={open ? "account-menu" : undefined}
             variant="contained"
-            endIcon={<KeyboardArrowDownIcon/>}
+            endIcon={<KeyboardArrowDownIcon />}
           >
             Sarah Robert
-            <br/>
+            <br />
             sarah@tenant.onmicrosoft.com
           </Button>
         </Tooltip>
@@ -123,7 +135,7 @@ const Header = () => {
             aria-controls={open ? "account-menu" : undefined}
             variant="contained"
           >
-            <PersonIcon/>
+            <PersonIcon />
           </Button>
         </Tooltip>
       </Box>
@@ -159,13 +171,12 @@ const Header = () => {
             },
           },
         }}
-        transformOrigin={{horizontal: "right", vertical: "top"}}
-        anchorOrigin={{horizontal: "right", vertical: "bottom"}}
+        transformOrigin={{ horizontal: "right", vertical: "top" }}
+        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-
         <MenuItem onClick={logout}>
           <ListItemIcon>
-            <Logout fontSize="small"/>
+            <Logout fontSize="small" />
           </ListItemIcon>
           Logout
         </MenuItem>
