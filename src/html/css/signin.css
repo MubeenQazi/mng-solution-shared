@@ -1,0 +1,200 @@
+/** @format */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  font-family: "Raleway", sans-serif;
+  background: url("../images/LoginBG.png");
+}
+
+::-webkit-scrollbar {
+  background-color: #ececec;
+  border-radius: 38px;
+  visibility: visible;
+  width: 6.5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ccc;
+  border-radius: 10px;
+  visibility: hidden;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.vh-100 {
+  height: 100vh;
+}
+
+.app-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+.app-login .login-inner {
+  background: #fff;
+  border-radius: 32px;
+  box-shadow: 0px 50px 60px rgb(0 0 0 / 3%);
+  width: 500px;
+  padding: 60px 50px;
+  margin-top: 30px;
+}
+
+.app-login .inner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-login .inner-content .content-left .sign-in {
+  color: #333333;
+  font-size: 36px;
+  font-family: "Raleway";
+  font-weight: bold;
+  margin: 0px;
+  display: flex;
+  align-items: center;
+}
+
+.app-login .inner-content .content-left .sign-in .lock {
+  height: 32px;
+  width: 32px;
+  margin-right: 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: inline-block;
+  fill: currentColor;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.app-login .inner-content .content-left h5 {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  font-size: 20px;
+  color: #666666;
+  font-weight: 400;
+}
+
+.app-login .inner-content .content-right .question-btn {
+  border: 2px solid #000;
+  border-radius: 50%;
+  font-size: 18px;
+  color: #000;
+  font-weight: bold;
+  display: inline-flex;
+  min-width: 42px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.app-login .btn-submit {
+  border: 2px solid #d1d2d4;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin-top: 60px;
+  width: 100%;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  background: #fff;
+}
+
+.app-login .btn-submit .btn-img {
+  float: left;
+  height: 58px;
+  margin-top: 7px;
+}
+
+.app-login .btn-submit .btn-text {
+  font-size: 20px;
+  color: #666666;
+  font-weight: 400;
+  text-transform: none;
+  text-align: center;
+  display: block;
+  width: 100%;
+  font-family: "Raleway";
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a {
+  color: #000;
+  text-decoration: none;
+}
+
+@media (min-width: 320px) and (max-width: 1024px) {
+  .app-logo {
+    width: 200px;
+    height: 100px;
+    object-fit: contain;
+  }
+
+  .app-login .login-inner {
+    margin-top: 10px !important;
+    width: 75% !important;
+  }
+
+  .app-login .inner-content .content-left h5 {
+    font-size: 15px !important;
+  }
+  .app-login .inner-content .content-right .question-btn {
+    min-width: 35px;
+    height: 35px;
+  }
+  .app-login .btn-submit {
+    margin-top: 30px;
+  }
+  .app-login .btn-submit .btn-img {
+    height: 40px !important;
+  }
+  .app-login .btn-submit .btn-text {
+    font-size: 14px !important;
+  }
+
+  .app-login .inner-content .content-left .sign-in {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 390px) {
+  .app-login .login-inner {
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+  }
+
+  .app-login .btn-submit .btn-img {
+    height: 25px !important;
+  }
+
+  .app-login .btn-submit .btn-text {
+    font-size: 12px !important;
+  }
+}

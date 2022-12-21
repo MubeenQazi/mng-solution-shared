@@ -20,7 +20,6 @@ const Header = () => {
 
   const logout = () => {
     // dispatch(doLogout());
-
     axios
       .get("https://portal.msolcsptest.com/app/signout/portal")
       .then(function (response) {

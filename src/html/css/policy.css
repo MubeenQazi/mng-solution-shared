@@ -1,0 +1,180 @@
+/** @format */
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  font-family: "Raleway", sans-serif;
+  background: url("../images/LoginBG.png");
+}
+
+::-webkit-scrollbar {
+  background-color: #ececec;
+  border-radius: 38px;
+  visibility: visible;
+  width: 6.5px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ccc;
+  border-radius: 10px;
+  visibility: hidden;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.archive {
+  display: flex;
+  flex-direction: column !important;
+  height: 100vh;
+  padding: 40px 80px;
+}
+
+.archive .archive-head {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 40px 0 20px;
+}
+
+.btn {
+  border-radius: 38px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px 20px;
+  text-transform: capitalize;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: inherit;
+}
+
+.btn-gray {
+  background: #9ba4af;
+}
+.btn-orange {
+  background: #feb127;
+}
+
+.archive .archive-head svg.back-arrow {
+  font-size: 15px;
+  font-weight: 700;
+  margin-right: 10px;
+  user-select: none;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  fill: currentcolor;
+  flex-shrink: 0;
+  transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+
+.archive .archive-head p.page-title {
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 0;
+}
+
+.archive .archive-content {
+  background: #fff;
+  border-radius: 20px;
+  padding: 50px 40px 40px;
+}
+
+.archive .archive-content .archive-paras {
+  height: 500px;
+  overflow-y: scroll;
+  margin: 0px;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+}
+
+.archive .archive-content .archive-paras h3 {
+  color: #333;
+  font-size: 35px;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+
+.archive .archive-content .archive-paras p {
+  color: #666;
+  font-size: 24px;
+  line-height: 44px;
+}
+
+.archive .archive-content .archive-paras p.para-br {
+  margin-top: 40px;
+}
+
+.archive .archive-content .archive-paras h5 {
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  font-weight: 600;
+  gap: 10px;
+  margin-top: 80px;
+}
+
+@media (min-width: 320px) and (max-width: 1024px) {
+  .app-logo {
+    width: 200px;
+    height: 100px;
+    object-fit: contain;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .archive {
+    padding: 0px 20px;
+  }
+  .archive .archive-top-sec {
+    text-align: center;
+  }
+  .archive .archive-head {
+    margin: 20px 0;
+  }
+  .archive .archive-head p.page-title {
+    font-size: 30px;
+    line-height: 40px;
+    text-align: center;
+    margin: 10px 0;
+  }
+
+  .archive .archive-content {
+    padding: 15px;
+  }
+  .archive .archive-content .archive-paras h3 {
+    font-size: 20px;
+    margin-bottom: 0px;
+  }
+  .archive .archive-content .archive-paras p {
+    font-size: 16px;
+    line-height: 25px;
+  }
+  .archive .archive-content .archive-paras p.para-br {
+    margin: 0px;
+  }
+  .archive .archive-content .archive-paras h5 {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 0px;
+  }
+}
+@media (min-width: 320px) and (max-width: 550px) {
+  .archive .archive-head {
+    flex-flow: row wrap;
+  }
+  .archive .archive-head .btn {
+    order: 2;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .archive .archive-head p.page-title {
+    font-size: 40px;
+  }
+}
