@@ -3,12 +3,12 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Start = () => {
+const Start = ({ app }: { app: string }) => {
   const navigate = useNavigate();
 
   const profile = () => {
     axios
-      .get("https://api.msolcsptest.com/sso/v1/profile/portal")
+      .get("https://api.msolcsptest.com/sso/v1/profile/" + app)
       .then(function (response) {
         if (response.data) {
           sessionStorage.setItem("display_name", response.data.display_name);
@@ -24,21 +24,23 @@ const Start = () => {
 
   useEffect(() => {
     return () => {
-      axios
-        .get("https://api.msolcsptest.com/sso/v1/refresh/portal")
-        .then(function (response) {
-          if (response.data) {
-            sessionStorage.setItem("expires_on", response.data.expires_on);
-            profile();
+      async function getRefreshToken() {
+        const response = await axios.get(
+          "https://api.msolcsptest.com/sso/v1/refresh/" + app
+        );
+        if (response.data) {
+          clearInterval(refresh);
+          sessionStorage.setItem("expires_on", response.data.expires_on);
+          profile();
+          navigate("./dashboard");
+        } else {
+          clearInterval(refresh);
+          sessionStorage.clear();
+          navigate("./login?e=timeout");
+        }
+      }
 
-            navigate("./dashboard");
-          } else {
-            navigate("./login?e=timeout");
-          }
-        })
-        .catch(function (error) {
-          navigate("./login?e=unauthorized");
-        });
+      const refresh = setInterval(getRefreshToken, 15000);
     };
   }, []);
 
