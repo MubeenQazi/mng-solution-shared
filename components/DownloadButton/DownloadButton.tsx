@@ -1,12 +1,13 @@
-import Button from "@mui/material/Button";
-import {CsvBuilder} from "filefy";
+/** @format */
 
-const DownloadButton = ({rows, columns, filename}: any) => {
+import Button from "@mui/material/Button";
+import { CsvBuilder } from "filefy";
+
+const DownloadButton = ({ rows, columns, filename }: any) => {
   const downloadCSV = () => {
     const filteredRows = rows.map((row: any) => {
-      let rowCopy = {...row};
-      rowCopy.action = "";
-      rowCopy.lineItem = JSON.stringify(rowCopy.lineItem);
+      let rowCopy = { ...row };
+      rowCopy.line_items = JSON.stringify(rowCopy.lineItem);
       return Object.values(rowCopy);
     });
     new CsvBuilder(filename)
