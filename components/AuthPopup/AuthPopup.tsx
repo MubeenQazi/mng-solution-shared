@@ -14,7 +14,7 @@ import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import MSButton from "./MSButton/MSButton";
+import MSButton from "../MSButton/MSButton";
 
 export const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialog-paperWidthSm": {
