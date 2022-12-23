@@ -35,11 +35,11 @@ const Header = () => {
   };
 
   React.useEffect(() => {
-    return () => {
-      // if (sessionStorage.getItem("expires_on") !== null) {
-      <Navigate to="/" replace={true} />;
-      // }
-    };
+    // return () => {
+    // if (sessionStorage.getItem("expires_on") !== null) {
+    <Navigate to="/" />;
+    // }
+    // };
   }, []);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
