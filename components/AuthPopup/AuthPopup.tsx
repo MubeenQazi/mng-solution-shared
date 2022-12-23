@@ -59,7 +59,7 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
   );
 }
 
-export function CustomizedDialogs(loginPopupImage: string) {
+export function CustomizedDialogs(loginPopupImage: any) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
