@@ -14,10 +14,12 @@ const Start = ({ app }: { app: string }) => {
           sessionStorage.setItem("email", response.data.email);
         } else {
           navigate("/?e=unauthorized");
+          sessionStorage.clear();
         }
       })
       .catch(function (error) {
         navigate("/?e=unauthorized");
+        sessionStorage.clear();
       });
   };
 
