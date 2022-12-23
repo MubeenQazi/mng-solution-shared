@@ -1,4 +1,12 @@
-import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from "react";
+/** @format */
+
+import {
+  Key,
+  ReactElement,
+  JSXElementConstructor,
+  ReactFragment,
+  ReactPortal,
+} from "react";
 import { TableSortLabel } from "@mui/material";
 import TableCell from "@mui/material/TableCell";
 import { alpha } from "@mui/material/styles";
@@ -9,20 +17,16 @@ import { visuallyHidden } from "@mui/utils";
 import Checkbox from "@mui/material/Checkbox";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import {AppImages} from "../../../shared/images";
+import { AppImages } from "../../../shared/images";
 
 const { sortingIcon } = AppImages;
 
 // Head Sort
 type Order = "asc" | "desc";
 
-
 interface EnhancedTableProps {
   numSelected?: number;
-  onRequestSort: (
-    event: React.MouseEvent<unknown>,
-    property: any
-  ) => void;
+  onRequestSort: (event: React.MouseEvent<unknown>, property: any) => void;
   onSelectAllClick?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   order: Order;
   orderBy: string;
@@ -38,19 +42,19 @@ export default function EnhancedTableHead(props: EnhancedTableProps) {
     rowCount,
     numSelected,
     onRequestSort,
-    headCells
+    headCells,
   } = props;
 
-  const createSortHandler = (property: any) => (event: React.MouseEvent<unknown>) => {
-    orderBy = property;
-    onRequestSort(event, property);
-  };
+  const createSortHandler =
+    (property: any) => (event: React.MouseEvent<unknown>) => {
+      orderBy = property;
+      onRequestSort(event, property);
+    };
 
   return (
     <TableHead>
       <TableRow>
-        {
-          numSelected !== undefined &&
+        {numSelected !== undefined && (
           <TableCell padding="checkbox">
             <Checkbox
               color="primary"
@@ -62,31 +66,56 @@ export default function EnhancedTableHead(props: EnhancedTableProps) {
               }}
             />
           </TableCell>
-        }
-        {headCells.map((headCell: { id: Key | null | undefined; numeric: any; disablePadding: any; label: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | ReactFragment | ReactPortal | null | undefined; }) => (
-          <TableCell
-            key={headCell.id}
-            padding={headCell.disablePadding ? "none" : "normal"}
-            sortDirection={orderBy === headCell.id ? order : false}
-          >
-            <TableSortLabel
-              active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : "asc"}
-              onClick={createSortHandler(headCell.id)}
-              IconComponent={() => <img alt="sort" src={sortingIcon} width="13px" height="13px" style={{
-                margin: '0 5px',
-                opacity: `${orderBy === headCell.id ? '1' : '0.7'}`
-              }}/>}
+        )}
+        {headCells.map(
+          (headCell: {
+            id: Key | null | undefined;
+            numeric: any;
+            disablePadding: any;
+            label:
+              | string
+              | number
+              | boolean
+              | ReactElement<any, string | JSXElementConstructor<any>>
+              | ReactFragment
+              | ReactPortal
+              | null
+              | undefined;
+          }) => (
+            <TableCell
+              key={headCell.id}
+              padding={headCell.disablePadding ? "none" : "normal"}
+              sortDirection={orderBy === headCell.id ? order : false}
             >
-              {headCell.label}
-              {orderBy === headCell.id ? (
-                <Box component="span" sx={visuallyHidden}>
-                  {order === "desc" ? "sorted descending" : "sorted ascending"}
-                </Box>
-              ) : null}
-            </TableSortLabel>
-          </TableCell>
-        ))}
+              <TableSortLabel
+                active={orderBy === headCell.id}
+                direction={orderBy === headCell.id ? order : "asc"}
+                onClick={createSortHandler(headCell.id)}
+                IconComponent={() => (
+                  <img
+                    alt="sort"
+                    src={sortingIcon}
+                    width="13px"
+                    height="13px"
+                    style={{
+                      margin: "0 5px",
+                      opacity: `${orderBy === headCell.id ? "1" : "0.7"}`,
+                    }}
+                  />
+                )}
+              >
+                {headCell.label}
+                {orderBy === headCell.id ? (
+                  <Box component="span" sx={visuallyHidden}>
+                    {order === "desc"
+                      ? "sorted descending"
+                      : "sorted ascending"}
+                  </Box>
+                ) : null}
+              </TableSortLabel>
+            </TableCell>
+          )
+        )}
       </TableRow>
     </TableHead>
   );
