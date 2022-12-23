@@ -13,11 +13,11 @@ const Start = ({ app }: { app: string }) => {
           sessionStorage.setItem("display_name", response.data.display_name);
           sessionStorage.setItem("email", response.data.email);
         } else {
-          navigate("/login?e=unauthorized");
+          navigate("/?e=unauthorized");
         }
       })
       .catch(function (error) {
-        navigate("./login?e=unauthorized");
+        navigate("/?e=unauthorized");
       });
   };
 
@@ -35,7 +35,7 @@ const Start = ({ app }: { app: string }) => {
         } else {
           clearInterval(refresh);
           sessionStorage.clear();
-          navigate("./login?e=timeout");
+          navigate("/?e=timeout");
         }
       }
 
