@@ -114,11 +114,9 @@ export default function EnhancedTableHead(props: EnhancedTableProps) {
                 ) : null}
               </TableSortLabel>
             </TableCell>
-            <TableCell>
-                Action
-            </TableCell>
           )
         )}
+        <TableCell>Action</TableCell>
       </TableRow>
     </TableHead>
   );
