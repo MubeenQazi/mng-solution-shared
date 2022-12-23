@@ -13,7 +13,6 @@ import Typography from "@mui/material/Typography";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { useState } from "react";
-import "./Login.scss";
 import { Link } from "react-router-dom";
 import MSButton from "./MSButton/MSButton";
 
