@@ -84,7 +84,7 @@ export function CustomizedDialogs({ popup }: { popup: string }) {
         />
         <DialogContent className="popup-content d-flex justify-content-center align-items-center">
           <img src={popup} alt="popup" />
-          <Typography className="popup-details">
+          <div className="popup-details">
             <p>
               If you're having trouble logging in, we can help. Please contact
               our support department:
@@ -101,7 +101,7 @@ export function CustomizedDialogs({ popup }: { popup: string }) {
               Phone – <a href="tel:88856391322">(888) 563-9132 #2</a>/
               <a href="tel:88856391322">(888) 563-9132 #2</a>
             </h5>
-          </Typography>
+          </div>
         </DialogContent>
         <DialogActions></DialogActions>
       </BootstrapDialog>
