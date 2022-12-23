@@ -58,7 +58,7 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
   );
 }
 
-export function CustomizedDialogs(loginPopupImage: any) {
+export function CustomizedDialogs({ popup }: { popup: string }) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -83,7 +83,7 @@ export function CustomizedDialogs(loginPopupImage: any) {
           onClose={handleClose}
         />
         <DialogContent className="popup-content d-flex justify-content-center align-items-center">
-          <img src={loginPopupImage} alt="popup" />
+          <img src={popup} alt="popup" />
           <Typography className="popup-details">
             <p>
               If you're having trouble logging in, we can help. Please contact
