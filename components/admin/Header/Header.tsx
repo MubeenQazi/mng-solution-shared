@@ -20,7 +20,6 @@ const Header = () => {
   const navigate = useNavigate();
 
   const logout = () => {
-    // dispatch(doLogout());
     axios
       .get("https://portal.msolcsptest.com/app/signout/portal")
       .then(function (response) {
@@ -33,6 +32,14 @@ const Header = () => {
         navigate("/login?e=signout");
       });
   };
+
+  React.useEffect(() => {
+    return () => {
+      if (!sessionStorage.getItem("expires_on")) {
+        navigate("/login?e=timeout");
+      }
+    };
+  }, []);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
