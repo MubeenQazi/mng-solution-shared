@@ -33,13 +33,11 @@ const Header = () => {
       });
   };
 
-  React.useEffect(() => {
-    // return () => {
-    if (sessionStorage.getItem("expires_on") === null) {
-      navigate("/?e=timeout");
-    }
-    // };
-  }, []);
+  // React.useEffect(() => {
+  //   if (sessionStorage.getItem("expires_on") === null) {
+  //     navigate("/?e=timeout");
+  //   }
+  // }, []);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
