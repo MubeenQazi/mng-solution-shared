@@ -15,6 +15,7 @@ import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import PersonIcon from "@mui/icons-material/Person";
 import axios from "axios";
+import { Redirect } from "react-router";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const Header = () => {
   React.useEffect(() => {
     return () => {
       if (!sessionStorage.getItem("expires_on")) {
-        navigate("/");
+        <Redirect to="/" />;
       }
     };
   }, []);
