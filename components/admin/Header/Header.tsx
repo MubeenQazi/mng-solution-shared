@@ -36,7 +36,7 @@ const Header = () => {
   React.useEffect(() => {
     // return () => {
     if (sessionStorage.getItem("expires_on") === null) {
-      navigate("/e=timeout");
+      navigate("/?e=timeout");
     }
     // };
   }, []);
