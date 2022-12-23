@@ -1,4 +1,10 @@
-import {BillingType, GeneralStatus, SubscriptionType} from "../../constants/constants";
+/** @format */
+
+import {
+  BillingType,
+  GeneralStatus,
+  SubscriptionType,
+} from "../../constants/constants";
 
 // Organization
 export const OrganizationData = [
@@ -31,42 +37,42 @@ export const OrganizationData = [
 // OrganizationDiscountPage
 export const OrganizationDiscountData = [
   {
-    id:1,
+    id: 1,
     title: "Microsoft 365 E1",
     discount: "00.50%",
     sku: "{4BE824DA-2F45-45D0-...",
     description: "Microsoft 365 E1 is an award winning product for all...",
   },
   {
-    id:2,
+    id: 2,
     title: "Microsoft 365 E1",
     discount: "00.50%",
     sku: "{4BE824DA-2F45-45D0-...",
     description: "Microsoft 365 E1 is an award winning product for all...",
   },
   {
-    id:3,
+    id: 3,
     title: "Microsoft 365 E1",
     discount: "00.50%",
     sku: "{4BE824DA-2F45-45D0-...",
     description: "Microsoft 365 E1 is an award winning product for all...",
   },
   {
-    id:4,
+    id: 4,
     title: "Microsoft 365 E1",
     discount: "00.50%",
     sku: "{4BE824DA-2F45-45D0-...",
     description: "Microsoft 365 E1 is an award winning product for all...",
   },
   {
-    id:5,
+    id: 5,
     title: "Microsoft 365 E1",
     discount: "00.50%",
     sku: "{4BE824DA-2F45-45D0-...",
     description: "Microsoft 365 E1 is an award winning product for all...",
   },
   {
-    id:6,
+    id: 6,
     title: "Microsoft 365 E1",
     discount: "00.50%",
     sku: "{4BE824DA-2F45-45D0-...",
@@ -75,139 +81,23 @@ export const OrganizationDiscountData = [
 ];
 export const SubscriptionData = [
   {
-    id: 1,
-    subscription: "Microsoft v0",
-    count: "06",
-    renewsOn: "Nov 1, 2023",
-    terms: "P1M",
-    autoRenewel: "Yes",
-    status: GeneralStatus.Active,
-    type: SubscriptionType.Full,
-    description: "Microsoft 365 E3 combines best-in-class productivity apps with core security and compliance capabilities.",
-    subscriptionPeriod: 'Dec 2, 2026 - Dec 2, 2027',
-    descriptionList: `<ul>
-            <li>
-              Improve productivity and foster a culture of collaboration with
-              connected experiences.
-            </li>
-            <li>
-              Transform how you manage your business and enhance customer
-              relationships with integrated workflows.
-            </li>
-            <li>
-              Proactively protect your employees, data, and customer information
-              with intelligent security.
-            </li>
-          </ul>`,
-    action: "View Details",
-  },
-  {
-    id: 2,
-    subscription: "Microsoft v1",
-    count: "12",
-    renewsOn: "Dec 2, 2026",
-    terms: "P1M",
-    autoRenewel: "No",
-    status: GeneralStatus.Active,
-    type: SubscriptionType.Yearly,
-    description: "Microsoft 365 E3 combines best-in-class productivity apps with core security and compliance capabilities.",
-    subscriptionPeriod: 'Dec 2, 2026 - Dec 2, 2027',
-    descriptionList: `<ul>
-            <li>
-              Improve productivity and foster a culture of collaboration with
-              connected experiences.
-            </li>
-            <li>
-              Transform how you manage your business and enhance customer
-              relationships with integrated workflows.
-            </li>
-            <li>
-              Proactively protect your employees, data, and customer information
-              with intelligent security.
-            </li>
-          </ul>`,
-    action: "View Details",
-  },
-  {
-    id: 3,
-    subscription: "Microsoft v2",
-    count: "06",
-    renewsOn: "Nov 1, 2023",
-    terms: "P1M",
-    autoRenewel: "Yes",
-    status: GeneralStatus.Active,
-    type: SubscriptionType.Monthly,
-    description: "Microsoft 365 E3 combines best-in-class productivity apps with core security and compliance capabilities.",
-    subscriptionPeriod: 'Dec 2, 2026 - Dec 2, 2027',
-    descriptionList: `<ul>
-            <li>
-              Improve productivity and foster a culture of collaboration with
-              connected experiences.
-            </li>
-            <li>
-              Transform how you manage your business and enhance customer
-              relationships with integrated workflows.
-            </li>
-            <li>
-              Proactively protect your employees, data, and customer information
-              with intelligent security.
-            </li>
-          </ul>`,
-    action: "View Details",
-  },
-  {
-    id: 4,
-    subscription: "Microsoft v3",
-    count: "06",
-    renewsOn: "Nov 1, 2023",
-    terms: "P1M",
-    autoRenewel: "Yes",
-    status: GeneralStatus.Deactive,
-    type: SubscriptionType.Yearly,
-    description: "Microsoft 365 E3 combines best-in-class productivity apps with core security and compliance capabilities.",
-    subscriptionPeriod: 'Dec 2, 2026 - Dec 2, 2027',
-    descriptionList: `<ul>
-            <li>
-              Improve productivity and foster a culture of collaboration with
-              connected experiences.
-            </li>
-            <li>
-              Transform how you manage your business and enhance customer
-              relationships with integrated workflows.
-            </li>
-            <li>
-              Proactively protect your employees, data, and customer information
-              with intelligent security.
-            </li>
-          </ul>`,
-    action: "View Details",
-  },
-  {
-    id: 5,
-    subscription: "Microsoft v4",
-    count: "06",
-    renewsOn: "Nov 1, 2023",
-    terms: "P1M",
-    autoRenewel: "Yes",
-    status: GeneralStatus.Deactive,
-    type: SubscriptionType.Full,
-    description: "Microsoft 365 E3 combines best-in-class productivity apps with core security and compliance capabilities.",
-    subscriptionPeriod: 'Dec 2, 2026 - Dec 2, 2027',
-    descriptionList: `<ul>
-            <li>
-              Improve productivity and foster a culture of collaboration with
-              connected experiences.
-            </li>
-            <li>
-              Transform how you manage your business and enhance customer
-              relationships with integrated workflows.
-            </li>
-            <li>
-              Proactively protect your employees, data, and customer information
-              with intelligent security.
-            </li>
-          </ul>`,
-    action: "View Details",
+    id: "924671ba-eab9-45d7-95ed-dbd9477f182b",
+    offer_id: "DG7GMGF0FKZV:0003:DG7GMGF0DQLM",
+    offer_name: "SQL Server Enterprise - 2 Core License Pack - 3 year",
+    offer_description:
+      "Microsoft 365 E3 combines best-in-class productivity apps with core security and compliance capabilities.",
+    quantity: 1,
+    creation_date: "2021-10-15T21:28:19.3058617Z",
+    effective_start_date: "2021-10-15T21:28:18.4786844Z",
+    commitment_end_date: "2024-10-14T00:00:00Z",
+    cancellation_allowed_until_date: "2021-11-14T23:59:00Z",
+    billing_cycle: "annual",
+    billing_type: "license",
+    term_duration: "P3Y",
+    will_auto_renew: true,
+    is_trial: false,
+    is_nce: true,
+    status: "active",
   },
 ];
 // Orders
@@ -252,7 +142,7 @@ export const OrderData = [
         item: "Microsoft 365 E5",
         unitPrice: "5000",
         term: "P1YM",
-      }
+      },
     ],
     billingPlan: BillingType.Monthly,
     termDuration: "1 Year",
@@ -270,7 +160,6 @@ export const OrderData = [
     coTerm: "Nov 1, 2023",
     status: GeneralStatus.Deactive,
     lineItem: [
-
       {
         id: 5,
         sku: "5",
@@ -302,7 +191,7 @@ export const OrderData = [
         item: "Microsoft 365 E5",
         unitPrice: "5000",
         term: "P1YM",
-      }
+      },
     ],
     billingPlan: BillingType.Monthly,
     termDuration: "1 Year",
@@ -320,7 +209,6 @@ export const OrderData = [
     coTerm: "Nov 1, 2023",
     status: GeneralStatus.Active,
     lineItem: [
-
       {
         id: 9,
         sku: "9",
@@ -352,7 +240,7 @@ export const OrderData = [
         item: "Microsoft 365 E5",
         unitPrice: "5000",
         term: "P1YM1",
-      }
+      },
     ],
     billingPlan: BillingType.Monthly,
     termDuration: "1 Year",
@@ -400,7 +288,7 @@ export const OrderData = [
         item: "Microsoft 365 E5",
         unitPrice: "5000",
         term: "P1YM",
-      }
+      },
     ],
     billingPlan: BillingType.Anually,
     termDuration: "1 Year",
@@ -448,7 +336,7 @@ export const OrderData = [
         item: "Microsoft 365 E5",
         unitPrice: "5000",
         term: "P1YM",
-      }
+      },
     ],
     billingPlan: BillingType.Anually,
     termDuration: "1 Year",
