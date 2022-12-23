@@ -36,9 +36,9 @@ const Header = () => {
 
   React.useEffect(() => {
     return () => {
-      if (sessionStorage.getItem("expires_on") !== null) {
-        <Navigate to="/" />;
-      }
+      // if (sessionStorage.getItem("expires_on") !== null) {
+      <Navigate to="/" />;
+      // }
     };
   }, []);
 
