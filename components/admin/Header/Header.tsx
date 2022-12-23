@@ -26,17 +26,17 @@ const Header = () => {
         sessionStorage.removeItem("display_name");
         sessionStorage.removeItem("email");
         sessionStorage.removeItem("expires_on");
-        navigate("?e=signout");
+        navigate("/?e=signout");
       })
       .catch(function (error) {
-        navigate("?e=signout");
+        navigate("/?e=signout");
       });
   };
 
   React.useEffect(() => {
     return () => {
       if (!sessionStorage.getItem("expires_on")) {
-        navigate("?e=timeout");
+        navigate("/?e=timeout");
       }
     };
   }, []);
