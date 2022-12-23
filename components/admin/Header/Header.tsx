@@ -28,6 +28,9 @@ const Header = () => {
         sessionStorage.removeItem("email");
         sessionStorage.removeItem("expires_on");
         navigate("/login?e=signout");
+      })
+      .catch(function (error) {
+        navigate("/login?e=signout");
       });
   };
 

@@ -2,10 +2,10 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 const Start = ({ app }: { app: string }) => {
   const navigate = useNavigate();
-
   const profile = () => {
     axios
       .get("https://api.msolcsptest.com/sso/v1/profile/" + app)
@@ -40,7 +40,7 @@ const Start = ({ app }: { app: string }) => {
         }
       }
 
-      const refresh = setInterval(getRefreshToken, 15000);
+      const refresh = setInterval(getRefreshToken, 150000);
     };
   }, []);
 
