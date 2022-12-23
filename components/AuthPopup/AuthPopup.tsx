@@ -15,10 +15,7 @@ import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { useState } from "react";
 import "./Login.scss";
 import { Link } from "react-router-dom";
-import MSButton from "../../submodule/components/MSButton/MSButton";
-import { AppImages } from "../../shared/images";
-import "./Login.scss";
-const { logo, loginPopupImage } = AppImages;
+import MSButton from "./MSButton/MSButton";
 
 export const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialog-paperWidthSm": {
@@ -62,7 +59,7 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
   );
 }
 
-export function CustomizedDialogs() {
+export function CustomizedDialogs(loginPopupImage: string) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
