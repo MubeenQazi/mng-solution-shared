@@ -1,9 +1,20 @@
-import { Button, Container, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, TextField } from '@mui/material';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
+/** @format */
+
+import {
+  Button,
+  Container,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  Radio,
+  RadioGroup,
+  TextField,
+} from "@mui/material";
+import MuiAlert, { AlertProps } from "@mui/material/Alert";
 import React from "react";
-import axios from 'axios';
+import axios from "axios";
 // todo: use package for notification bar
-import Snackbar from '@mui/material/Snackbar';
+import Snackbar from "@mui/material/Snackbar";
 
 const defaultValue = {
   email: "",
@@ -15,7 +26,7 @@ const defaultValue = {
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
-  ref,
+  ref
 ) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
@@ -39,23 +50,28 @@ const ContactUsForm = ({ page }: { page: string }) => {
     setDisabled(true);
 
     const requestBody = {
-      "source": "portal",
-      "page": page,
-      "data": {
-        "Email": `${formValues.email}`,
+      source: "portal",
+      page: page,
+      data: {
+        Email: `${formValues.email}`,
         "Phone Number": `${formValues.phone}`,
-        "Subject": `${formValues.subject}`,
-        "Message": `${formValues.message}`,
-        "How would you like us to contact you?": `${formValues.contact}`
-      }
-    }
+        Subject: `${formValues.subject}`,
+        Message: `${formValues.message}`,
+        "How would you like us to contact you?": `${formValues.contact}`,
+      },
+    };
 
-    axios.post("https://api.msolcsptest.com/notify/v1/portalmessage", requestBody , {
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json'
-      }
-    })
+    axios
+      .post(
+        `${process.env.REACT_APP_API_BASE}/notify/v1/portalmessage`,
+        requestBody,
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
+        }
+      )
       .then(function (response) {
         setOpen(true);
         setDisabled(false);
@@ -65,11 +81,13 @@ const ContactUsForm = ({ page }: { page: string }) => {
         setOpen(false);
         setDisabled(false);
       });
+  };
 
-  }
-
-  const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
-    if (reason === 'clickaway') {
+  const handleClose = (
+    event?: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
       return;
     }
     setOpen(false);
@@ -77,9 +95,12 @@ const ContactUsForm = ({ page }: { page: string }) => {
 
   return (
     <Container>
-
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity={"success"} sx={{ width: '100%' }}>
+        <Alert
+          onClose={handleClose}
+          severity={"success"}
+          sx={{ width: "100%" }}
+        >
           Message Send Successfully
         </Alert>
       </Snackbar>
@@ -131,13 +152,19 @@ const ContactUsForm = ({ page }: { page: string }) => {
             rows={5}
             onChange={handleInputChange}
             name="message"
-            value={formValues.message} />
+            value={formValues.message}
+          />
         </FormControl>
 
         <div className="home-contact-option d-md-flex justify-content-between mt-30">
           <FormControl className="contact-radio-button">
             <FormLabel>How would you like us to contact you?</FormLabel>
-            <RadioGroup row value={formValues.contact} name="contact" onChange={handleInputChange}>
+            <RadioGroup
+              row
+              value={formValues.contact}
+              name="contact"
+              onChange={handleInputChange}
+            >
               <FormControlLabel
                 value="Email"
                 control={<Radio />}
@@ -150,7 +177,12 @@ const ContactUsForm = ({ page }: { page: string }) => {
               />
             </RadioGroup>
           </FormControl>
-          <Button type="submit" className="btn-rounded btn-mid" variant="contained" disabled={disabled}>
+          <Button
+            type="submit"
+            className="btn-rounded btn-mid"
+            variant="contained"
+            disabled={disabled}
+          >
             Send Message
           </Button>
         </div>
