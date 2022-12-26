@@ -14,9 +14,9 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
 });
 
 export default function AlertMessage(
-  open: Boolean = false,
-  message: String,
-  severity: String = "success"
+  open: boolean = false,
+  message: string,
+  severity: string = "success"
 ) {
   const handleClose = (
     event?: React.SyntheticEvent | Event,
