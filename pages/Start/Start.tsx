@@ -7,7 +7,7 @@ const Start = ({ app }: { app: string }) => {
   const navigate = useNavigate();
   const profile = () => {
     axios
-      .get(`${process.env.REACT_APP_API_BASE}/profile/` + app)
+      .get(`${process.env.REACT_APP_API_BASE}/sso/v1/profile/` + app)
       .then(function (response) {
         if (response.data) {
           sessionStorage.setItem("display_name", response.data.display_name);
@@ -27,7 +27,7 @@ const Start = ({ app }: { app: string }) => {
     return () => {
       async function getRefreshToken() {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_BASE}/refresh/` + app
+          `${process.env.REACT_APP_API_BASE}/sso/v1/refresh/` + app
         );
         if (response.data) {
           clearInterval(refresh);
