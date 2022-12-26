@@ -14,7 +14,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
 });
 
 export default function AlertMessage(
-  open: Boolean,
+  open: Boolean = false,
   message: String,
   severity: String = "success"
 ) {
