@@ -10,11 +10,9 @@ import {
   RadioGroup,
   TextField,
 } from "@mui/material";
-import MuiAlert, { AlertProps } from "@mui/material/Alert";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-// todo: use package for notification bar
-import Snackbar from "@mui/material/Snackbar";
+import AlertMessage from "../AlertMessage/AlertMessage";
 
 const defaultValue = {
   email: "",
@@ -24,18 +22,14 @@ const defaultValue = {
   contact: "Email",
 };
 
-const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
-  props,
-  ref
-) {
-  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
-});
-
 // Todo: refactor
 const ContactUsForm = ({ page }: { page: string }) => {
-  const [formValues, setFormValues] = React.useState(defaultValue);
-  const [open, setOpen] = React.useState(false);
-  const [disabled, setDisabled] = React.useState(false);
+  const [formValues, setFormValues] = useState(defaultValue);
+
+  const [message, setMessage] = useState<string>("");
+  const [alert, setAlert] = useState<boolean>(false);
+
+  const [disabled, setDisabled] = useState(false);
 
   const handleInputChange = (e: any) => {
     const { name, value }: any = e.target;
@@ -73,37 +67,30 @@ const ContactUsForm = ({ page }: { page: string }) => {
         }
       )
       .then(function (response) {
-        setOpen(true);
-        setDisabled(false);
+        setMessage("success");
         setFormValues(defaultValue);
       })
       .catch(function (error) {
-        setOpen(false);
-        setDisabled(false);
+        setMessage("fail");
       });
+
+    setAlert(true);
+    setDisabled(false);
   };
 
-  const handleClose = (
-    event?: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
-    if (reason === "clickaway") {
-      return;
-    }
-    setOpen(false);
-  };
+  useEffect(() => {
+    // when the component is mounted, the alert is displayed for 5 seconds
+    setTimeout(() => {
+      setAlert(false);
+    }, 5000);
+  }, []);
 
   return (
     <Container>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert
-          onClose={handleClose}
-          severity={"success"}
-          sx={{ width: "100%" }}
-        >
-          Message Send Successfully
-        </Alert>
-      </Snackbar>
+      {message == "success"
+        ? AlertMessage(alert, "Subscription Updated Succefully", "success")
+        : message == "fail" &&
+          AlertMessage(alert, "Subscription Updated Failed", "error")}
       <h2 className="primary-heading">Send Us a Message</h2>
 
       <form onSubmit={handleSubmit}>
