@@ -13,7 +13,11 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export default function AlertMessage(open: boolean = false, message: string) {
+export default function AlertMessage(
+  open: boolean = false,
+  message: string,
+  alertcolor: string
+) {
   const handleClose = (
     event?: React.SyntheticEvent | Event,
     reason?: string
@@ -24,7 +28,7 @@ export default function AlertMessage(open: boolean = false, message: string) {
 
     open = false;
   };
-  let color = "success";
+  let color: string = alertcolor || "success";
 
   return (
     <Stack spacing={2} sx={{ width: "100%" }}>
