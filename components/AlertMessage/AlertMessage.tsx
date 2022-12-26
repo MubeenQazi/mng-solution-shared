@@ -13,7 +13,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-export default function Alert(
+export default function AlertMessage(
   open: Boolean,
   message: String,
   severity: String = "success"
