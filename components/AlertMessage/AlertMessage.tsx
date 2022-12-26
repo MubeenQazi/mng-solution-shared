@@ -18,20 +18,14 @@ export default function AlertMessage(
   message: string,
   alertcolor: any
 ) {
-  const handleClose = (
-    event?: React.SyntheticEvent | Event,
-    reason?: string
-  ) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    open = false;
+  const [snackOpen, setSnackOpen] = React.useState(open);
+  const handleClose = (event?: React.SyntheticEvent | Event) => {
+    setSnackOpen(false);
   };
 
   return (
     <Stack spacing={2} sx={{ width: "100%" }}>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleClose}>
         <Alert
           onClose={handleClose}
           severity={alertcolor}
