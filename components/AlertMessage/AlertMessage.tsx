@@ -16,7 +16,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
 export default function AlertMessage(
   open: boolean = false,
   message: string,
-  alertcolor: string
+  alertcolor: undefined
 ) {
   const handleClose = (
     event?: React.SyntheticEvent | Event,
@@ -28,12 +28,15 @@ export default function AlertMessage(
 
     open = false;
   };
-  let color: string = alertcolor || "success";
 
   return (
     <Stack spacing={2} sx={{ width: "100%" }}>
       <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity={color} sx={{ width: "100%" }}>
+        <Alert
+          onClose={handleClose}
+          severity={alertcolor}
+          sx={{ width: "100%" }}
+        >
           {message}
         </Alert>
       </Snackbar>
