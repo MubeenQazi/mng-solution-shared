@@ -18,18 +18,10 @@ export default function AlertMessage(
   message: string,
   alertcolor: any
 ) {
-  const handleClose = (event?: React.SyntheticEvent | Event) => {
-    open = false;
-  };
-
   return (
     <Stack spacing={2} sx={{ width: "100%" }}>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-        <Alert
-          onClose={handleClose}
-          severity={alertcolor}
-          sx={{ width: "100%" }}
-        >
+      <Snackbar open={open} autoHideDuration={6000}>
+        <Alert severity={alertcolor} sx={{ width: "100%" }}>
           {message}
         </Alert>
       </Snackbar>
