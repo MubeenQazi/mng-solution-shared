@@ -94,7 +94,7 @@ export const SubscriptionData = [
     billing_cycle: "annual",
     billing_type: "license",
     term_duration: "P3Y",
-    will_auto_renew: true,
+    will_auto_renew: false,
     is_trial: false,
     is_nce: true,
     status: "active",
