@@ -14,7 +14,7 @@ import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import MSButton from "../MSButton/MSButton";
+// import MSButton from "../MSButton/MSButton";
 
 export const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialog-paperWidthSm": {
@@ -131,9 +131,7 @@ export function LogoutPopup() {
         <Typography variant="h4" className="popup-heading">
           Successfully Signed-Out
         </Typography>
-        <Link to={"/"}>
-          <MSButton text="Ok" />
-        </Link>
+        <Link to={"/"}>{/* <MSButton text="Ok" /> */}</Link>
       </DialogContent>
       <DialogActions></DialogActions>
     </BootstrapDialog>
@@ -161,9 +159,7 @@ export function ErrorPopup({ errorMessage }: { errorMessage: string | null }) {
         <Typography variant="h4" className="popup-heading">
           {errorMessage}
         </Typography>
-        <Link to={"/"}>
-          <MSButton text="Ok" />
-        </Link>
+        <Link to={"/"}>{/* <MSButton text="Ok" /> */}</Link>
       </DialogContent>
       <DialogActions></DialogActions>
     </BootstrapDialog>
