@@ -8,15 +8,15 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import DownloadButton from "../DownloadButton/DownloadButton";
 import SearchBar from "../SearchBar/SearchBar";
 
-const Table = (
+const Table = ({
   getRows,
   getColumns,
   ALL_COLUMNS,
   TABLET_COLUMNS,
   MOBILE_COLUMNS,
   DownloadColumns,
-  FileName
-) => {
+  FileName,
+}: any) => {
   const [rows, setRows] = useState(getRows);
   const [searched, setSearched] = useState<string>("");
   const [columnVisible, setColumnVisible] = useState(ALL_COLUMNS);
