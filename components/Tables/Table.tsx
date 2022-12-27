@@ -1,39 +1,90 @@
+/** @format */
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import Box from "@mui/material/Box";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import DownloadButton from "../DownloadButton/DownloadButton";
+import SearchBar from "../SearchBar/SearchBar";
 
-export function stableSort<T>(
-  array: readonly T[],
-  comparator: (a: T, b: T) => number
-) {
-  const stabilizedThis = array.map((el, index) => [el, index] as [T, number]);
-  stabilizedThis.sort((a, b) => {
-    const order = comparator(a[0], b[0]);
-    if (order !== 0) {
-      return order;
-    }
-    return a[1] - b[1];
-  });
-  return stabilizedThis.map((el) => el[0]);
-}
+const Table = (
+  getRows,
+  getColumns,
+  ALL_COLUMNS,
+  TABLET_COLUMNS,
+  MOBILE_COLUMNS,
+  DownloadColumns,
+  FileName
+) => {
+  const [rows, setRows] = useState(getRows);
+  const [searched, setSearched] = useState<string>("");
+  const [columnVisible, setColumnVisible] = useState(ALL_COLUMNS);
 
-export function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
-  if (b[orderBy] < a[orderBy]) {
-    return -1;
-  }
-  if (b[orderBy] > a[orderBy]) {
-    return 1;
-  }
-  return 0;
-}
+  const location = useLocation();
+  const navigate = useNavigate();
+  const columns: GridColDef[] = getColumns;
 
-export type Order = "asc" | "desc";
+  const clickableRow = (row: any) => {
+    navigate(`detail/${row.id}`, {
+      state: { ...row, ...{ activeSideBar: location.state?.activeSideBar } },
+    });
+  };
 
-export function getComparator<Key extends keyof any>(
-  order: Order,
-  orderBy: Key
-): (
-  a: { [key in Key]: number | string },
-  b: { [key in Key]: number | string }
-) => number {
-  return order === "desc"
-    ? (a, b) => descendingComparator(a, b, orderBy)
-    : (a, b) => -descendingComparator(a, b, orderBy);
-}
+  const requestSearch = (searchedVal: string) => {
+    const filteredRows = rows.filter((row: any) => {
+      return row.offer_name.toLowerCase().includes(searchedVal.toLowerCase());
+    });
+    setRows(filteredRows);
+  };
+
+  const onChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setSearched(event.target.value as string);
+    requestSearch(event.target.value as string);
+  };
+
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
+  const tableMatch = useMediaQuery(theme.breakpoints.up("md"));
+
+  React.useEffect(() => {
+    const newColumns = tableMatch
+      ? ALL_COLUMNS
+      : matches
+      ? TABLET_COLUMNS
+      : MOBILE_COLUMNS;
+    setColumnVisible(newColumns);
+  }, [matches, tableMatch]);
+
+  return (
+    <div>
+      <Box sx={{ textAlign: `right`, marginBottom: `30px` }}>
+        <DownloadButton
+          rows={rows}
+          columns={DownloadColumns}
+          filename={FileName}
+        />
+      </Box>
+      <Box>
+        <SearchBar value={searched} onChange={onChange} />
+        <Box>
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            disableSelectionOnClick={true}
+            autoHeight={true}
+            autoPageSize={true}
+            hideFooter={true}
+            disableColumnMenu={true}
+            pageSize={5}
+            headerHeight={60}
+            rowHeight={70}
+            columnVisibilityModel={columnVisible}
+            onRowClick={(rowData) => clickableRow(rowData.row)}
+          />
+        </Box>
+      </Box>
+    </div>
+  );
+};
+export default Table;
