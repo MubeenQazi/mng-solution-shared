@@ -68,14 +68,15 @@ const ContactUsForm = ({ page }: { page: string }) => {
       )
       .then(function (response) {
         setMessage("success");
+        setDisabled(false);
+        setAlert(true);
         setFormValues(defaultValue);
       })
       .catch(function (error) {
         setMessage("fail");
+        setAlert(true);
+        setDisabled(false);
       });
-
-    setAlert(true);
-    setDisabled(false);
   };
 
   useEffect(() => {
@@ -87,10 +88,10 @@ const ContactUsForm = ({ page }: { page: string }) => {
 
   return (
     <Container>
-      {message == "success"
-        ? AlertMessage(alert, "Subscription Updated Succefully", "success")
-        : message == "fail" &&
-          AlertMessage(alert, "Subscription Updated Failed", "error")}
+      {message === "success"
+        ? AlertMessage(alert, "Message Send Succefully", "success")
+        : message === "fail" &&
+          AlertMessage(alert, "Message Send Failed", "error")}
       <h2 className="primary-heading">Send Us a Message</h2>
 
       <form onSubmit={handleSubmit}>

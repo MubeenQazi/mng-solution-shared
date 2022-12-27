@@ -1,3 +1,5 @@
+/** @format */
+
 import Button from "@mui/material/Button";
 
 const MSButton = ({ text, icon, backgroundColor, clickAction }: any) => {

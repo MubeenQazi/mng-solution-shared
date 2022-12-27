@@ -1,3 +1,5 @@
+/** @format */
+
 import { Table, tableCellClasses } from "@mui/material";
 import { styled } from "@mui/system";
 export const TableStyled = styled(Table)(() => ({

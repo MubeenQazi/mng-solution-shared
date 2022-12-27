@@ -1,11 +1,11 @@
 /** @format */
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Start = ({ app }: { app: string }) => {
   const navigate = useNavigate();
-  const profile = () => {
+  const profile = useCallback(() => {
     axios
       .get(`${process.env.REACT_APP_API_BASE}/sso/v1/profile/` + app)
       .then(function (response) {
@@ -21,7 +21,7 @@ const Start = ({ app }: { app: string }) => {
         navigate("/?e=unauthorized");
         sessionStorage.clear();
       });
-  };
+  }, [app, navigate]);
 
   useEffect(() => {
     return () => {
@@ -43,7 +43,7 @@ const Start = ({ app }: { app: string }) => {
 
       const refresh = setInterval(getRefreshToken, 150000);
     };
-  }, []);
+  }, [app, navigate, profile]);
 
   return <h1>Wait...</h1>;
 };

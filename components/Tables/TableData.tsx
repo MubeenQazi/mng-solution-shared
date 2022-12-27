@@ -1,36 +1,23 @@
 /** @format */
-
-import {
-  BillingType,
-  GeneralStatus,
-  SubscriptionType,
-} from "../../constants/constants";
-
 // Organization
 export const OrganizationData = [
   {
-    id: 1,
-    organization: "Costco",
-    status: GeneralStatus.Active,
-    created: "06/02/2012",
-    organization_tenant_id: "{CBF2A708-6FBC-4F1C-A084-47389A4BBD3E",
-    notes: "",
-  },
-  {
-    id: 2,
-    organization: "McDonalds",
-    status: GeneralStatus.Suspended,
-    created: "03/03/2003",
-    organization_tenant_id: "{B1E3C250-FC51-4030-9489-E747DA4486F0}",
-    notes: "Organization suspended for non-payment.",
-  },
-  {
-    id: 3,
-    organization: "KFC",
-    status: GeneralStatus.Active,
-    created: "13/13/2023",
-    organization_tenant_id: "{B1E3C250-FC51-4030-9489-E747DA4486F0}",
-    notes: "Organization suspended for non-payment.",
+    organization_id: "924671ba-eab9-45d7-95ed-dbd9477f182b",
+    tenant_id: "924671ba-eab9-45d7-95ed-dbd9477f182b",
+    name: "McDonalds",
+    status: "active",
+    creation_date: "2023-01-21T11:28:59Z",
+    notes: "This organization is inactive for non-payment.",
+    discounts: [
+      {
+        organization_id: "924671ba-eab9-45d7-95ed-dbd9477f182b",
+        offer_id: "924671ba-eab9-45d7-95ed-dbd9477f182b",
+        name: "Microsoft 365 E3",
+        description: "Welcome to Microsoft 365. This service offers...",
+        sku: "1",
+        discount_percent: 10,
+      },
+    ],
   },
 ];
 

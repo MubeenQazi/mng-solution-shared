@@ -116,7 +116,6 @@ export default function EnhancedTableHead(props: EnhancedTableProps) {
             </TableCell>
           )
         )}
-        <TableCell>Action</TableCell>
       </TableRow>
     </TableHead>
   );
