@@ -21,13 +21,18 @@
       & .MuiDataGrid-iconButtonContainer {
         width: auto !important;
         visibility: visible !important;
+
+        .MuiButtonBase-root {
+          padding: auto !important;
+          height: auto !important;
+        }
         .MuiSvgIcon-root {
           opacity: 1;
           color: #fff;
         }
       }
 
-      & > .MuiDataGrid-columnSeparator {
+      .MuiDataGrid-columnSeparator {
         visibility: hidden !important;
       }
     }
