@@ -38,6 +38,10 @@ const Table = ({
       return row.offer_name.toLowerCase().includes(searchedVal.toLowerCase());
     });
     setRows(filteredRows);
+
+    if (searchedVal == "") {
+      setRows(getRows);
+    }
   };
 
   const onChange = (event: React.ChangeEvent<{ value: unknown }>) => {
