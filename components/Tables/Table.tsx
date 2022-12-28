@@ -39,8 +39,8 @@ const Table = ({
     });
     setRows(filteredRows);
 
-    if (searchedVal == "") {
-      setRows(getRows);
+    if (searchedVal === "") {
+      setRows(rows);
     }
   };
 
