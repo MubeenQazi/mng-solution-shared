@@ -10,7 +10,8 @@
     text-transform: capitalize;
 
     .MuiDataGrid-columnHeader:focus,
-    .MuiDataGrid-cell:focus {
+    .MuiDataGrid-cell:focus,
+    .MuiDataGrid-cellCheckbox:focus {
       outline: none;
     }
 
