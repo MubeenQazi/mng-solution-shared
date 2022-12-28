@@ -39,6 +39,10 @@
 
     .MuiDataGrid-virtualScroller {
       background-color: #fbfbfb;
+
+      .MuiDataGrid-row {
+        cursor: pointer;
+      }
     }
   }
 }
