@@ -1,22 +1,24 @@
+/** @format */
+
 import * as React from "react";
-import {styled} from "@mui/system";
+import { styled } from "@mui/system";
 import MuiDrawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import CloseIcon from "@mui/icons-material/Close";
-import {Link, useLocation} from "react-router-dom";
-import {Typography} from "@mui/material";
-import {SubModAppImages} from "../../../constants/constants";
+import { Link, useLocation } from "react-router-dom";
+import { Typography } from "@mui/material";
+import { SubModAppImages } from "../../shared/images";
 import "./Sidebar.scss";
-import {SideBarRoutesList} from "../../../../shared/constants/constants";
+import { SideBarRoutesList } from "../../../../shared/constants/constants";
 
 const drawerWidth = 280;
 
 const { logo } = SubModAppImages;
 
-const DrawerHeader = styled("div")(({theme}) => ({
+const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -42,10 +44,10 @@ const Sidebar = () => {
   let highlightedSideBar = location.state ? location.state.activeSideBar : path;
 
   if (highlightedSideBar === undefined) {
-    highlightedSideBar = pathNameSplit[pathNameSplit.length - 3]
+    highlightedSideBar = pathNameSplit[pathNameSplit.length - 3];
   }
   if (!highlightedSideBar) {
-    highlightedSideBar = 'organization';
+    highlightedSideBar = "organization";
   }
 
   function handleShowSideBar() {
@@ -66,33 +68,27 @@ const Sidebar = () => {
             onClick={handleShowSideBar}
             className="responsive-menu-hamburger"
           />
-          <ListItem
-            component={Link}
-            to={"/"}
-            className="logo"
-          >
-            <img
-              className="app-logo"
-              alt="logo"
-              src={logo}
-            />
+          <ListItem component={Link} to={"/"} className="logo">
+            <img className="app-logo" alt="logo" src={logo} />
           </ListItem>
         </DrawerHeader>
         <List className="sidebarnav">
           {SideBarRoutesList.map((item) => {
-            const {text, to, icon: Icon, activeSideBar} = item as any;
+            const { text, to, icon: Icon, activeSideBar } = item as any;
             return (
               <ListItem
                 component={Link}
                 to={to}
                 button
                 key={text}
-                state={{activeSideBar: activeSideBar}}
-                className={
-                  (highlightedSideBar === activeSideBar) ? "active" : ""
-                }
+                state={{ activeSideBar: activeSideBar }}
+                className={highlightedSideBar === activeSideBar ? "active" : ""}
               >
-                {Icon && <ListItemIcon><Icon /></ListItemIcon>}
+                {Icon && (
+                  <ListItemIcon>
+                    <Icon />
+                  </ListItemIcon>
+                )}
                 <ListItemText
                   primary={<Typography className="navLink">{text}</Typography>}
                 />
