@@ -34,14 +34,10 @@ const Table = ({
   };
 
   const requestSearch = (searchedVal: string) => {
-    const filteredRows = rows.filter((row: any) => {
+    const filteredRows = getRows.filter((row: any) => {
       return row.offer_name.toLowerCase().includes(searchedVal.toLowerCase());
     });
     setRows(filteredRows);
-
-    if (searchedVal === "") {
-      setRows(rows);
-    }
   };
 
   const onChange = (event: React.ChangeEvent<{ value: unknown }>) => {
