@@ -11,7 +11,7 @@
 
     .MuiDataGrid-columnHeader:focus,
     .MuiDataGrid-cell:focus,
-    .MuiDataGrid-cellCheckbox:focus {
+    .MuiDataGrid-cell:focus-within {
       outline: none;
     }
 
