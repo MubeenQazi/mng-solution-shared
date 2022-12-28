@@ -12,15 +12,16 @@ import "./Table.scss";
 const Table = ({
   getRows,
   getColumns,
-  ALL_COLUMNS,
-  TABLET_COLUMNS,
-  MOBILE_COLUMNS,
-  DownloadColumns,
-  FileName,
+  getDesktopColumns,
+  getTabletColumns,
+  getMobileColumns,
+  getDownloadColumns,
+  getDownloadFileName,
+  checkboxEnable,
 }: any) => {
   const [rows, setRows] = useState(getRows);
   const [searched, setSearched] = useState<string>("");
-  const [columnVisible, setColumnVisible] = useState(ALL_COLUMNS);
+  const [columnVisible, setColumnVisible] = useState(getDesktopColumns);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -50,10 +51,10 @@ const Table = ({
 
   React.useEffect(() => {
     const newColumns = tableMatch
-      ? ALL_COLUMNS
+      ? getDesktopColumns
       : matches
-      ? TABLET_COLUMNS
-      : MOBILE_COLUMNS;
+      ? getTabletColumns
+      : getMobileColumns;
     setColumnVisible(newColumns);
   }, [matches, tableMatch]);
 
@@ -62,8 +63,8 @@ const Table = ({
       <Box sx={{ textAlign: `right`, marginBottom: `30px` }}>
         <DownloadButton
           rows={rows}
-          columns={DownloadColumns}
-          filename={FileName}
+          columns={getDownloadColumns}
+          filename={getDownloadFileName}
         />
       </Box>
       <Box>
@@ -80,6 +81,7 @@ const Table = ({
             pageSize={5}
             headerHeight={60}
             rowHeight={70}
+            checkboxSelection={checkboxEnable}
             columnVisibilityModel={columnVisible}
             onRowClick={(rowData) => clickableRow(rowData.row)}
           />
