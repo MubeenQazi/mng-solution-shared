@@ -10,7 +10,7 @@ import ListItemText from "@mui/material/ListItemText";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link, useLocation } from "react-router-dom";
 import { Typography } from "@mui/material";
-import { SubModAppImages } from "../../shared/images";
+import { SubModAppImages } from "../../../constants/constants";
 import "./Sidebar.scss";
 import { SideBarRoutesList } from "../../../../shared/constants/constants";
 
