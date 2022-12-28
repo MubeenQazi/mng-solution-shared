@@ -7,6 +7,7 @@
   .MuiDataGrid-main {
     font: normal normal normal 18px/36px Raleway;
     letter-spacing: 0.32px;
+    text-transform: capitalize;
 
     .MuiDataGrid-columnHeader:focus,
     .MuiDataGrid-cell:focus {
