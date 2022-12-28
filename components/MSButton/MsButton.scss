@@ -1,0 +1,14 @@
+/** @format */
+
+.ms-global-button {
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 50px;
+  border-radius: 50px;
+  text-transform: inherit;
+  font: normal normal 500 20px/80px Raleway;
+  &:hover,
+  &:active {
+    color: #fff;
+  }
+}

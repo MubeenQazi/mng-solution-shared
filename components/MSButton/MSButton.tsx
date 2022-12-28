@@ -1,21 +1,16 @@
 /** @format */
 
 import Button from "@mui/material/Button";
+import "./MsButton.scss";
 
-const MSButton = ({ text, icon, backgroundColor, clickAction }: any) => {
+const MsButton = ({ text, icon, backgroundColor, clickAction }: any) => {
   return (
     <Button
       size="small"
+      className="ms-global-button"
       sx={{
-        paddingLeft: `30px`,
-        paddingRight: `30px`,
-        height: `50px`,
-        borderRadius: `50px`,
-        textTransform: `inherit`,
         backgroundColor: backgroundColor,
-        font: `normal normal 500 20px/80px Raleway`,
         "&:hover, &:active": {
-          backgroundColor: backgroundColor,
           color: "#fff",
         },
       }}
