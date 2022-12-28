@@ -23,4 +23,4 @@ const MsButton = ({ text, icon, backgroundColor, clickAction }: any) => {
   );
 };
 
-export default MSButton;
+export default MsButton;
