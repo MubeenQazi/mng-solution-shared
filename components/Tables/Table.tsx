@@ -7,6 +7,7 @@ import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import DownloadButton from "../DownloadButton/DownloadButton";
 import SearchBar from "../SearchBar/SearchBar";
+import "./Table.scss";
 
 const Table = ({
   getRows,
