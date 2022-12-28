@@ -34,7 +34,7 @@ const Table = ({
   };
 
   const requestSearch = (searchedVal: string) => {
-    const filteredRows = getRows.filter((row: any) => {
+    const filteredRows = rows.filter((row: any) => {
       return row.offer_name.toLowerCase().includes(searchedVal.toLowerCase());
     });
     setRows(filteredRows);
