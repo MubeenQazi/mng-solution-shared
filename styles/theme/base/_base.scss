@@ -78,20 +78,3 @@ a {
 .fancy-scroll {
   overflow-y: auto;
 }
-
-.danger {
-  color: red;
-}
-
-.h-90 {
-  min-height: 90vh;
-}
-
-.dashboard-header .MuiTableCell-root {
-  max-width: 100% !important;
-}
-.MuiTableCell-root {
-  max-width: 150px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}

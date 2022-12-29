@@ -90,7 +90,7 @@ export default function CustomizedDialogs({
 export function QuestionDialog({ popupImg }: any) {
   return (
     <>
-      <img src={popupImg} alt="popup" />
+      <img src={popupImg} alt="popup" className="d-block mx-auto" />
       <div className="modal-details">
         <p>
           If you're having trouble logging in, we can help. Please contact our
