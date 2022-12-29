@@ -1,0 +1,39 @@
+/** @format */
+
+.modal-heading {
+  margin-bottom: 30px;
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 30px;
+  text-align: center;
+  text-transform: capitalize;
+}
+.modal-details {
+  color: #333333;
+  margin-top: 40px;
+
+  .label-contact-support,
+  .contact-email,
+  .contact-phone {
+    font-weight: 400;
+    font-size: 20px;
+    margin: 5px;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+  hr {
+    color: #fbfbfb;
+    border: 1px solid #fbfbfb;
+  }
+  p {
+    margin: 0;
+    font-size: 25px;
+  }
+  text-align: center;
+  .popup-link {
+    color: #ee7623;
+  }
+}

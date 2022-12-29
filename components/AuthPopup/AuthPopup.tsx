@@ -8,6 +8,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import "./AuthPopup.scss";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -48,7 +49,7 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
   );
 }
 
-export default function QuestionDialog({ title, content, action }: any) {
+export default function CustomizedDialogs({ title, content, action }: any) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -81,6 +82,29 @@ export default function QuestionDialog({ title, content, action }: any) {
   );
 }
 
+export function QuestionDialog(popupImg: String) {
+  return (
+    <>
+      <img src={popupImg} alt="popup" />
+      <div className="modal-details">
+        <p>
+          If you're having trouble logging in, we can help. Please contact our
+          support department:
+        </p>
+        <hr />
+        <h4 className="label-contact-support">Contact Support:</h4>
+        <h5 className="contact-email">
+          E-mail –
+          <a href="mail:o365@managedsolution.com">o365@managedsolution.com</a>
+        </h5>
+        <h5 className="contact-phone">
+          Phone – <a href="tel:88856391322">(888) 563-9132 #2</a>
+          <a href="tel:88856391322">(888) 563-9132 #2</a>
+        </h5>
+      </div>
+    </>
+  );
+}
 export function LogoutPopup() {}
 export function ErrorPopup({ errorMessage }: { errorMessage: string | null }) {}
 // export function CustomizedDialogs({ popup }: { popup: string }) {
