@@ -74,7 +74,7 @@ const Table = ({
             gridColumns={getColumns}
             checkboxEnable={checkboxEnable}
             columnVisible={columnVisible}
-            rowAction={(rowData) => clickableRow(rowData.row)}
+            rowAction={(rowData: any) => clickableRow(rowData.row)}
             gridClass="datagrid-table"
           />
         </Box>
