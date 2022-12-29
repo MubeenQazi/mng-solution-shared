@@ -154,12 +154,27 @@ export function ErrorPopup({ errorMessage }: { errorMessage: string | null }) {
         id="customized-dialog-title"
         onClose={handleClose}
       />
-      <DialogContent className="popup-content d-flex justify-content-center align-items-center">
-        <HighlightOffIcon className="danger icon" />
-        <Typography variant="h4" className="popup-heading">
-          {errorMessage}
-        </Typography>
-        <Link to={"/"}>{/* <MSButton text="Ok" /> */}</Link>
+      <DialogContent className="popup-content">
+        <div className="d-flex align-items-center">
+          <LockIcon className="danger" fontSize="large" />
+          <h4 className="error-popup-heading danger">Sign In {errorMessage}</h4>
+        </div>
+
+        <div className="error-popup-details">
+          <p>
+            Your sign in attempt was not successful, but we are ready to help!
+            Please email{" "}
+            <a href="mail:o365@managedsolution.com">
+              <b>o365@managedsolution.com</b>
+            </a>
+            , and one of our team members will reach out to help you get
+            connected. <br />
+            Thank you for choosing Managed Solution.
+          </p>
+        </div>
+        {/* <Link to={"/"}>
+          <MSButton text="Ok" />
+        </Link> */}
       </DialogContent>
       <DialogActions></DialogActions>
     </BootstrapDialog>
