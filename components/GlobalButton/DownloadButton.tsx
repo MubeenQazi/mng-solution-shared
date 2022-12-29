@@ -2,7 +2,7 @@
 
 import Button from "@mui/material/Button";
 import { CsvBuilder } from "filefy";
-import "../MsButton/MsButton.scss";
+import "./GlobalButton.scss";
 
 const DownloadButton = ({ rows, columns, filename }: any) => {
   const downloadCSV = () => {
@@ -18,7 +18,12 @@ const DownloadButton = ({ rows, columns, filename }: any) => {
   };
 
   return (
-    <Button size="small" variant="contained" onClick={downloadCSV}>
+    <Button
+      className="ms-global-button"
+      size="small"
+      variant="contained"
+      onClick={downloadCSV}
+    >
       Download
     </Button>
   );

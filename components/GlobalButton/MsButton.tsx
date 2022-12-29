@@ -1,7 +1,7 @@
 /** @format */
 
 import Button from "@mui/material/Button";
-import "./MsButton.scss";
+import "./GlobalButton.scss";
 
 const MsButton = ({ text, icon, backgroundColor, clickAction }: any) => {
   return (
