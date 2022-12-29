@@ -83,6 +83,7 @@ export default function CustomizedDialogs({ title, content, action }: any) {
 }
 
 export function QuestionDialog(popupImg: any) {
+  console.log(popupImg);
   return (
     <>
       <img src={popupImg} alt="popup" />
