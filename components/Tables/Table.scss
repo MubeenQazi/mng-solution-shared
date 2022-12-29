@@ -1,6 +1,7 @@
 /** @format */
 
-.MuiDataGrid-root {
+.datagrid-table,
+.datagrid-table-detail {
   margin-top: 30px;
   border-radius: 15px !important;
   overflow: hidden;
@@ -46,5 +47,13 @@
         cursor: pointer;
       }
     }
+  }
+}
+
+.datagrid-table-detail {
+  border: 0;
+  margin-top: 0;
+  .MuiDataGrid-row:hover {
+    background-color: transparent;
   }
 }

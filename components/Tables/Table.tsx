@@ -2,11 +2,11 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import DownloadButton from "../DownloadButton/DownloadButton";
 import SearchBar from "../SearchBar/SearchBar";
+import TableGrid from "./TableGrid";
 import "./Table.scss";
 
 const Table = ({
@@ -25,7 +25,6 @@ const Table = ({
 
   const location = useLocation();
   const navigate = useNavigate();
-  const columns: GridColDef[] = getColumns;
 
   const clickableRow = (row: any) => {
     navigate(`detail/${row.id}`, {
@@ -70,20 +69,13 @@ const Table = ({
       <Box>
         <SearchBar value={searched} onChange={onChange} />
         <Box>
-          <DataGrid
-            rows={rows}
-            columns={columns}
-            disableSelectionOnClick={true}
-            autoHeight={true}
-            autoPageSize={true}
-            hideFooter={true}
-            disableColumnMenu={true}
-            pageSize={5}
-            headerHeight={60}
-            rowHeight={70}
-            checkboxSelection={checkboxEnable}
-            columnVisibilityModel={columnVisible}
-            onRowClick={(rowData) => clickableRow(rowData.row)}
+          <TableGrid
+            gridRows={rows}
+            gridColumns={getColumns}
+            checkboxEnable={checkboxEnable}
+            columnVisible={columnVisible}
+            rowAction={(rowData) => clickableRow(rowData.row)}
+            gridClass="datagrid-table"
           />
         </Box>
       </Box>
