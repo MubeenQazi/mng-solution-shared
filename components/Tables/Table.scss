@@ -51,7 +51,7 @@
 }
 
 .datagrid-table-detail {
-  border: 0;
+  border: 0 !important;
   margin-top: 0;
   .MuiDataGrid-row:hover {
     background-color: transparent;
