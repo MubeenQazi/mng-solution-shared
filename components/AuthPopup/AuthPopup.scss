@@ -1,59 +1,18 @@
 /** @format */
-.question-btn {
-  border: 2px solid #000;
-  border-radius: 50%;
-  font-size: 18px;
-  color: #000;
-  font-weight: bold;
-  display: inline-flex;
-  min-width: 42px;
-  height: 42px;
-  &:hover {
-    background: none;
-  }
-}
-
-.modal-heading {
-  margin-bottom: 30px;
-  margin-top: 10px;
-  font-weight: 600;
-  font-size: 30px;
-  text-align: center;
+.error-popup-heading {
+  text-align: left;
+  font: normal normal bold 36px Raleway;
+  line-height: 1;
+  margin: 0;
   text-transform: capitalize;
+  margin-left: 10px;
 }
-.modal-details {
-  color: #333333;
-  margin-top: 40px;
-
-  .label-contact-support,
-  .contact-email,
-  .contact-phone {
-    font-weight: 400;
-    font-size: 20px;
-    margin: 5px;
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-  }
-  hr {
-    color: #fbfbfb;
-    border: 1px solid #fbfbfb;
-  }
-  p {
-    margin: 0;
-    font-size: 25px;
-  }
-  text-align: center;
-  .popup-link {
-    color: #ee7623;
-  }
-}
-
-@media (min-width: 320px) and (max-width: 1024px) {
-  .question-btn {
-    min-width: 35px;
-    height: 35px;
+.error-popup-details {
+  text-align: left;
+  font: normal normal normal 20px/44px Raleway;
+  letter-spacing: 0px;
+  color: #666666;
+  a {
+    color: #666666;
   }
 }
