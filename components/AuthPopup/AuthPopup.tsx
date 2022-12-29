@@ -61,9 +61,7 @@ export default function CustomizedDialogs({ title, content, action }: any) {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open dialog
-      </Button>
+      <Button className="question-btn" onClick={handleClickOpen}></Button>
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
