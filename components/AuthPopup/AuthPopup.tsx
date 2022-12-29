@@ -82,7 +82,7 @@ export default function CustomizedDialogs({ title, content, action }: any) {
   );
 }
 
-export function QuestionDialog(popupImg: string) {
+export function QuestionDialog({ popupImg }: any) {
   console.log(popupImg);
   return (
     <>
