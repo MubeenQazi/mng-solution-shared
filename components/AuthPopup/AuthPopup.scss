@@ -50,3 +50,10 @@
     color: #ee7623;
   }
 }
+
+@media (min-width: 320px) and (max-width: 1024px) {
+  .question-btn {
+    min-width: 35px;
+    height: 35px;
+  }
+}
