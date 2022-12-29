@@ -61,7 +61,9 @@ export default function CustomizedDialogs({ title, content, action }: any) {
 
   return (
     <div>
-      <Button className="question-btn" onClick={handleClickOpen}></Button>
+      <Button className="question-btn" onClick={handleClickOpen}>
+        <img src={require("../../../../AppImages/question.png")} />
+      </Button>
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
