@@ -1,26 +1,15 @@
 /** @format */
-
 import * as React from "react";
 import Button from "@mui/material/Button";
-import { styled } from "@mui/system";
+import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import IconButton from "@mui/material/IconButton";
-import CancelIcon from "@mui/icons-material/Cancel";
-import Typography from "@mui/material/Typography";
-import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
-// import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-import LockIcon from "@mui/icons-material/Lock";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-// import MSButton from "../MSButton/MSButton";
+import CloseIcon from "@mui/icons-material/Close";
 
-export const BootstrapDialog = styled(Dialog)(({ theme }) => ({
-  "& .MuiDialog-paperWidthSm": {
-    minWidth: "300px",
-  },
+const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
   },
@@ -52,15 +41,15 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
             color: (theme) => theme.palette.grey[500],
           }}
         >
-          <CancelIcon className="close-btn" />
+          <CloseIcon />
         </IconButton>
       ) : null}
     </DialogTitle>
   );
 }
 
-export function CustomizedDialogs({ popup }: { popup: string }) {
-  const [open, setOpen] = useState(false);
+export default function CustomizedDialogs({ title, content, action }: any) {
+  const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -71,8 +60,8 @@ export function CustomizedDialogs({ popup }: { popup: string }) {
 
   return (
     <div>
-      <Button className="question-btn" onClick={handleClickOpen}>
-        {/* <img src={require("../../../../AppImages/question.png")} /> */} ?
+      <Button variant="outlined" onClick={handleClickOpen}>
+        Open dialog
       </Button>
       <BootstrapDialog
         onClose={handleClose}
@@ -82,102 +71,135 @@ export function CustomizedDialogs({ popup }: { popup: string }) {
         <BootstrapDialogTitle
           id="customized-dialog-title"
           onClose={handleClose}
-        />
-        <DialogContent className="popup-content d-flex justify-content-center align-items-center">
-          <img src={popup} alt="popup" />
-          <div className="popup-details">
-            <p>
-              If you're having trouble logging in, we can help. Please contact
-              our support department:
-            </p>
-            <hr />
-            <h4 className="label-contact-support">Contact Support:</h4>
-            <h5 className="contact-email">
-              E-mail –{" "}
-              <a href="mail:o365@managedsolution.com">
-                o365@managedsolution.com
-              </a>
-            </h5>
-            <h5 className="contact-phone">
-              Phone – <a href="tel:88856391322">(888) 563-9132 #2</a>/
-              <a href="tel:88856391322">(888) 563-9132 #2</a>
-            </h5>
-          </div>
-        </DialogContent>
-        <DialogActions></DialogActions>
+        >
+          {title}
+        </BootstrapDialogTitle>
+        <DialogContent>{content}</DialogContent>
+        <DialogActions>{action}</DialogActions>
       </BootstrapDialog>
     </div>
   );
 }
 
-export function LogoutPopup() {
-  const [open, setOpen] = useState(true);
+// export function CustomizedDialogs({ popup }: { popup: string }) {
+//   const [open, setOpen] = useState(false);
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+//   const handleClickOpen = () => {
+//     setOpen(true);
+//   };
+//   const handleClose = () => {
+//     setOpen(false);
+//   };
 
-  return (
-    <BootstrapDialog
-      onClose={handleClose}
-      aria-labelledby="customized-dialog-title"
-      open={open}
-    >
-      <BootstrapDialogTitle
-        id="customized-dialog-title"
-        onClose={handleClose}
-      />
-      <DialogContent className="popup-content d-flex justify-content-center align-items-center">
-        <CheckCircleOutlineIcon className="success icon" />
-        <Typography variant="h4" className="popup-heading">
-          Successfully Signed-Out
-        </Typography>
-        <Link to={"/"}>{/* <MSButton text="Ok" /> */}</Link>
-      </DialogContent>
-      <DialogActions></DialogActions>
-    </BootstrapDialog>
-  );
-}
+//   return (
+//     <div>
+//       <Button className="question-btn" onClick={handleClickOpen}>
+//         {/* <img src={require("../../../../AppImages/question.png")} /> */} ?
+//       </Button>
+//       <BootstrapDialog
+//         onClose={handleClose}
+//         aria-labelledby="customized-dialog-title"
+//         open={open}
+//       >
+//         <BootstrapDialogTitle
+//           id="customized-dialog-title"
+//           onClose={handleClose}
+//         />
+//         <DialogContent className="popup-content d-flex justify-content-center align-items-center">
+//           <img src={popup} alt="popup" />
+//           <div className="popup-details">
+//             <p>
+//               If you're having trouble logging in, we can help. Please contact
+//               our support department:
+//             </p>
+//             <hr />
+//             <h4 className="label-contact-support">Contact Support:</h4>
+//             <h5 className="contact-email">
+//               E-mail –{" "}
+//               <a href="mail:o365@managedsolution.com">
+//                 o365@managedsolution.com
+//               </a>
+//             </h5>
+//             <h5 className="contact-phone">
+//               Phone – <a href="tel:88856391322">(888) 563-9132 #2</a>/
+//               <a href="tel:88856391322">(888) 563-9132 #2</a>
+//             </h5>
+//           </div>
+//         </DialogContent>
+//         <DialogActions></DialogActions>
+//       </BootstrapDialog>
+//     </div>
+//   );
+// }
 
-export function ErrorPopup({ errorMessage }: { errorMessage: string | null }) {
-  const [open, setOpen] = useState(true);
-  const handleClose = () => {
-    setOpen(false);
-  };
+// export function LogoutPopup() {
+//   const [open, setOpen] = useState(true);
 
-  return (
-    <BootstrapDialog
-      onClose={handleClose}
-      aria-labelledby="customized-dialog-title"
-      open={open}
-    >
-      <BootstrapDialogTitle
-        id="customized-dialog-title"
-        onClose={handleClose}
-      />
-      <DialogContent className="popup-content">
-        <div className="d-flex align-items-center">
-          <LockIcon className="danger" fontSize="large" />
-          <h4 className="error-popup-heading danger">Sign In {errorMessage}</h4>
-        </div>
+//   const handleClose = () => {
+//     setOpen(false);
+//   };
 
-        <div className="error-popup-details">
-          <p>
-            Your sign in attempt was not successful, but we are ready to help!
-            Please email{" "}
-            <a href="mail:o365@managedsolution.com">
-              <b>o365@managedsolution.com</b>
-            </a>
-            , and one of our team members will reach out to help you get
-            connected. <br />
-            Thank you for choosing Managed Solution.
-          </p>
-        </div>
-        {/* <Link to={"/"}>
-          <MSButton text="Ok" />
-        </Link> */}
-      </DialogContent>
-      <DialogActions></DialogActions>
-    </BootstrapDialog>
-  );
-}
+//   return (
+//     <BootstrapDialog
+//       onClose={handleClose}
+//       aria-labelledby="customized-dialog-title"
+//       open={open}
+//     >
+//       <BootstrapDialogTitle
+//         id="customized-dialog-title"
+//         onClose={handleClose}
+//       />
+//       <DialogContent className="popup-content d-flex justify-content-center align-items-center">
+//         <CheckCircleOutlineIcon className="success icon" />
+//         <Typography variant="h4" className="popup-heading">
+//           Successfully Signed-Out
+//         </Typography>
+//         <Link to={"/"}>{/* <MSButton text="Ok" /> */}</Link>
+//       </DialogContent>
+//       <DialogActions></DialogActions>
+//     </BootstrapDialog>
+//   );
+// }
+
+// export function ErrorPopup({ errorMessage }: { errorMessage: string | null }) {
+//   const [open, setOpen] = useState(true);
+//   const handleClose = () => {
+//     setOpen(false);
+//   };
+
+//   return (
+//     <BootstrapDialog
+//       onClose={handleClose}
+//       aria-labelledby="customized-dialog-title"
+//       open={open}
+//     >
+//       <BootstrapDialogTitle
+//         id="customized-dialog-title"
+//         onClose={handleClose}
+//       />
+//       <DialogContent className="popup-content">
+//         <div className="d-flex align-items-center">
+//           <LockIcon className="danger" fontSize="large" />
+//           <h4 className="error-popup-heading danger">Sign In {errorMessage}</h4>
+//         </div>
+
+//         <div className="error-popup-details">
+//           <p>
+//             Your sign in attempt was not successful, but we are ready to help!
+//             Please email{" "}
+//             <a href="mail:o365@managedsolution.com">
+//               <b>o365@managedsolution.com</b>
+//             </a>
+//             , and one of our team members will reach out to help you get
+//             connected. <br />
+//             Thank you for choosing Managed Solution.
+//           </p>
+//         </div>
+//         {/* <Link to={"/"}>
+//           <MSButton text="Ok" />
+//         </Link> */}
+//       </DialogContent>
+//       <DialogActions></DialogActions>
+//     </BootstrapDialog>
+//   );
+// }
