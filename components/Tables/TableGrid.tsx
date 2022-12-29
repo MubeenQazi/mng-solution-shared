@@ -1,17 +1,36 @@
 /** @format */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import "./Table.scss";
 
 const TableGrid = ({
   gridRows,
   gridColumns,
+  gridDesktopColumns,
+  gridTabletColumns,
+  gridMobileColumns,
   checkboxEnable,
-  columnVisible,
   rowAction,
   gridClass,
 }: any) => {
   const columns: GridColDef[] = gridColumns;
+  const [columnVisible, setColumnVisible] = useState(gridDesktopColumns);
+
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up("sm"));
+  const tableMatch = useMediaQuery(theme.breakpoints.up("md"));
+
+  useEffect(() => {
+    const newColumns = tableMatch
+      ? gridDesktopColumns
+      : matches
+      ? gridTabletColumns
+      : gridMobileColumns;
+    setColumnVisible(newColumns);
+  }, [matches, tableMatch]);
+
   return (
     <DataGrid
       rows={gridRows}
