@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Box from "@mui/material/Box";
-import DownloadButton from "../DownloadButton/DownloadButton";
+import DownloadButton from "../GlobalButton/DownloadButton";
 import SearchBar from "../SearchBar/SearchBar";
 import TableGrid from "./TableGrid";
 import "./Table.scss";
