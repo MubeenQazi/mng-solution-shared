@@ -60,7 +60,7 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
   );
 }
 
-export function CustomizedDialogs({ popup }: { popup: string }) {
+export default function CustomizedDialogs({ popup }: { popup: string }) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
