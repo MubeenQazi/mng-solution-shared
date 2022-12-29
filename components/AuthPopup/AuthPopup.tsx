@@ -48,7 +48,7 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
   );
 }
 
-export default function CustomizedDialogs({ title, content, action }: any) {
+export default function QuestionDialog({ title, content, action }: any) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -81,6 +81,8 @@ export default function CustomizedDialogs({ title, content, action }: any) {
   );
 }
 
+export function LogoutPopup() {}
+export function ErrorPopup({ errorMessage }: { errorMessage: string | null }) {}
 // export function CustomizedDialogs({ popup }: { popup: string }) {
 //   const [open, setOpen] = useState(false);
 
