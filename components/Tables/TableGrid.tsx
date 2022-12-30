@@ -38,7 +38,7 @@ const TableGrid = ({
       columns={columns.map((column) => ({
         ...column,
         cellClassName: ({ row: device }) =>
-          device.status === "offline" ? "ms-active" : "ms-suspend",
+          device.status === "active" ? "ms-active" : "ms-suspend",
       }))}
       disableSelectionOnClick={true}
       autoHeight={true}
