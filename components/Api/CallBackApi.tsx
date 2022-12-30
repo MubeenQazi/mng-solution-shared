@@ -2,11 +2,12 @@
 /** @format */
 import React, { useCallback } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
-export const getRefreshToken = async (app: string, refresh: any) => {
-  const navigate = useNavigate();
-
+export const getRefreshToken = async (
+  app: string,
+  navigate: any,
+  refresh: any
+) => {
   const profile = () => {
     useCallback(() => {
       axios
