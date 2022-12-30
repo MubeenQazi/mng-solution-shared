@@ -1,14 +1,14 @@
 /** @format */
 import React, { useEffect } from "react";
-import { getRefreshToken } from "../../components/Api/CallBackApi";
+import { CallBackApi } from "../../components/Api/CallBackApi";
 import { useNavigate } from "react-router-dom";
 
 const Start = ({ app }: { app: string }) => {
   const navigate = useNavigate();
   useEffect(() => {
     return () => {
-      const refresh = setInterval(getRefreshToken, 150000);
-      getRefreshToken(app, navigate, refresh);
+      const refresh = setInterval(CallBackApi, 150000);
+      CallBackApi(app, navigate, refresh);
     };
   }, [app]);
 
