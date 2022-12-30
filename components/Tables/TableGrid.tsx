@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import "./Table.scss";
 
 const TableGrid = ({
@@ -47,6 +48,9 @@ const TableGrid = ({
       columnVisibilityModel={columnVisible}
       onRowClick={rowAction}
       className={gridClass}
+      components={{
+        ColumnUnsortedIcon: ArrowDropDownIcon,
+      }}
     />
   );
 };
