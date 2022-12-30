@@ -14,28 +14,17 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import PersonIcon from "@mui/icons-material/Person";
-import axios from "axios";
+import { LogoutApi } from "../../Api/LogoutApi";
 
 const Header = () => {
   const navigate = useNavigate();
-
   const logout = () => {
-    axios
-      .get("https://portal.msolcsptest.com/app/signout/portal")
-      .then(function (response) {
-        sessionStorage.removeItem("display_name");
-        sessionStorage.removeItem("email");
-        sessionStorage.removeItem("expires_on");
-        navigate("./app/login?e=signout");
-      })
-      .catch(function (error) {
-        navigate("./app/login?e=signout");
-      });
+    LogoutApi();
   };
 
   React.useEffect(() => {
     if (sessionStorage.getItem("expires_on") === null) {
-      // navigate("./app/login?e=unauthorized");
+      navigate("./app/login?e=unauthorized");
     }
   }, [navigate]);
 

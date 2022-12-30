@@ -11,7 +11,7 @@ import {
   TextField,
 } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { NotifyApi } from "../Api/NotifyApi";
 import AlertMessage from "../AlertMessage/AlertMessage";
 
 const defaultValue = {
@@ -55,28 +55,16 @@ const ContactUsForm = ({ page }: { page: string }) => {
       },
     };
 
-    axios
-      .post(
-        `${process.env.REACT_APP_API_BASE}/notify/v1/portalmessage`,
-        requestBody,
-        {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      .then(function (response) {
-        setMessage("success");
-        setDisabled(false);
-        setAlert(true);
-        setFormValues(defaultValue);
-      })
-      .catch(function (error) {
-        setMessage("fail");
-        setAlert(true);
-        setDisabled(false);
-      });
+    if (NotifyApi(requestBody)) {
+      setMessage("success");
+      setDisabled(false);
+      setAlert(true);
+      setFormValues(defaultValue);
+    } else {
+      setMessage("fail");
+      setAlert(true);
+      setDisabled(false);
+    }
   };
 
   useEffect(() => {
