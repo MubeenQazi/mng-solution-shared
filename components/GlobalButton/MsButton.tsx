@@ -9,7 +9,7 @@ const MsButton = ({ text, icon, backgroundColor, clickAction }: any) => {
       size="small"
       className="ms-global-button"
       sx={{
-        backgroundColor: backgroundColor,
+        backgroundColor: `${backgroundColor} !important`,
         "&:hover, &:active": {
           color: "#fff",
         },
