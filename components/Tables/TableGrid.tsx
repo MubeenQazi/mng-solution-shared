@@ -34,7 +34,12 @@ const TableGrid = ({
   return (
     <DataGrid
       rows={gridRows}
-      columns={columns}
+      // columns={columns}sssss
+      columns={columns.map((column) => ({
+        ...column,
+        cellClassName: ({ row: device }) =>
+          device.status === "offline" ? "ms-active" : "ms-suspend",
+      }))}
       disableSelectionOnClick={true}
       autoHeight={true}
       autoPageSize={true}

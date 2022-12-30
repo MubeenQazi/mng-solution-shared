@@ -1,3 +1,5 @@
+/** @format */
+
 .panel-light {
   background: #fbfbfb 0% 0% no-repeat padding-box;
   border: 1px solid #d1d2d433;
@@ -11,11 +13,15 @@
 .ms-active {
   color: #44c2b2 !important;
   font: normal normal normal 18px/80px Raleway !important;
+  text-transform: capitalize;
+  margin-left: 10px;
 }
 
 .ms-suspend {
   color: #ff3636 !important;
   font: normal normal normal 18px/80px Raleway !important;
+  text-transform: capitalize;
+  margin-left: 10px;
 }
 
 .ms-meta-title,
