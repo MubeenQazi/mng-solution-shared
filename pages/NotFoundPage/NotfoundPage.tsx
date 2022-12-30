@@ -1,12 +1,10 @@
-/** @format */
-
-import { Button, Typography } from "@mui/material";
+import {Button, Typography} from "@mui/material";
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import "./NotFound.scss";
-import { SubModAppImages } from "../../constants/constants";
+import {useNavigate} from "react-router-dom";
+import "./NotFound.scss"
+import {SubModAppImages} from "../../constants/constants";
 
-const { img404 } = SubModAppImages;
+const {img404} = SubModAppImages;
 
 const NotfoundPage = () => {
   const navigate = useNavigate();
@@ -16,15 +14,9 @@ const NotfoundPage = () => {
   return (
     <>
       <div className="notfound">
-        <img className="notfoundimg" alt="not found" src={img404} />
-        <Typography className="notfoundcontent">
-          The Page You Requested Could Not Found!
-        </Typography>
-        <Button
-          className="notfoundbtn"
-          variant="contained"
-          onClick={handlenotfound}
-        >
+        <img className="notfoundimg" alt="not found" src={img404}/>
+        <Typography className="notfoundcontent">The Page You Requested Could Not Found!</Typography>
+        <Button className="notfoundbtn" variant="contained" onClick={handlenotfound}>
           Back
         </Button>
         <footer>

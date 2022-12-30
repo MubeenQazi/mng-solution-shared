@@ -26,18 +26,18 @@ const Header = () => {
         sessionStorage.removeItem("display_name");
         sessionStorage.removeItem("email");
         sessionStorage.removeItem("expires_on");
-        navigate("/?e=signout");
+        navigate("./app/login?e=signout");
       })
       .catch(function (error) {
-        navigate("/?e=signout");
+        navigate("./app/login?e=signout");
       });
   };
 
-  // React.useEffect(() => {
-  //   if (sessionStorage.getItem("expires_on") === null) {
-  //     navigate("/?e=timeout");
-  //   }
-  // }, []);
+  React.useEffect(() => {
+    if (sessionStorage.getItem("expires_on") === null) {
+      navigate("./app/login?e=unauthorized");
+    }
+  }, [navigate]);
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);

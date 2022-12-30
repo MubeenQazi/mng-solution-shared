@@ -15,7 +15,7 @@ import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
 import LockIcon from "@mui/icons-material/Lock";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import MSButton from "../MSButton/MSButton";
+import MSButton from "../GlobalButton/DownloadButton";
 import "./AuthPopup.scss";
 
 export const BootstrapDialog = styled(Dialog)(({ theme }) => ({
@@ -60,7 +60,7 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
   );
 }
 
-export default function CustomizedDialogs({ popup }: { popup: string }) {
+export function CustomizedDialogs({ popup }: { popup: string }) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {

@@ -13,12 +13,12 @@ const Start = ({ app }: { app: string }) => {
           sessionStorage.setItem("display_name", response.data.display_name);
           sessionStorage.setItem("email", response.data.email);
         } else {
-          navigate("/?e=unauthorized");
+          navigate("./app/login?e=unauthorized");
           sessionStorage.clear();
         }
       })
       .catch(function (error) {
-        navigate("/?e=unauthorized");
+        navigate("./app/login?e=unauthorized");
         sessionStorage.clear();
       });
   }, [app, navigate]);
@@ -33,11 +33,11 @@ const Start = ({ app }: { app: string }) => {
           clearInterval(refresh);
           sessionStorage.setItem("expires_on", response.data.expires_on);
           profile();
-          navigate("./dashboard");
+          navigate("./app");
         } else {
           clearInterval(refresh);
           sessionStorage.clear();
-          navigate("/?e=timeout");
+          navigate("./app/login?e=timeout");
         }
       }
 
