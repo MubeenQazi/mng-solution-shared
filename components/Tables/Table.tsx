@@ -1,39 +1,69 @@
+/** @format */
 
-export function stableSort<T>(
-  array: readonly T[],
-  comparator: (a: T, b: T) => number
-) {
-  const stabilizedThis = array.map((el, index) => [el, index] as [T, number]);
-  stabilizedThis.sort((a, b) => {
-    const order = comparator(a[0], b[0]);
-    if (order !== 0) {
-      return order;
-    }
-    return a[1] - b[1];
-  });
-  return stabilizedThis.map((el) => el[0]);
-}
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import Box from "@mui/material/Box";
+import DownloadButton from "../GlobalButton/DownloadButton";
+import SearchBar from "../SearchBar/SearchBar";
+import TableGrid from "./TableGrid";
+import "./Table.scss";
 
-export function descendingComparator<T>(a: T, b: T, orderBy: keyof T) {
-  if (b[orderBy] < a[orderBy]) {
-    return -1;
-  }
-  if (b[orderBy] > a[orderBy]) {
-    return 1;
-  }
-  return 0;
-}
+const Table = ({
+  getRows,
+  getColumns,
+  getDesktopColumns,
+  getTabletColumns,
+  getMobileColumns,
+  getDownloadColumns,
+  getDownloadFileName,
+  checkboxEnable,
+}: any) => {
+  const [rows, setRows] = useState(getRows);
+  const [searched, setSearched] = useState<string>("");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const clickableRow = (row: any) => {
+    navigate(`detail/${row.id}`, {
+      state: { ...row, ...{ activeSideBar: location.state?.activeSideBar } },
+    });
+  };
+  const requestSearch = (searchedVal: string) => {
+    const filteredRows = rows.filter((row: any) => {
+      return row.offer_name.toLowerCase().includes(searchedVal.toLowerCase());
+    });
+    setRows(filteredRows);
+  };
 
-export type Order = "asc" | "desc";
+  const onChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    setSearched(event.target.value as string);
+    requestSearch(event.target.value as string);
+  };
 
-export function getComparator<Key extends keyof any>(
-  order: Order,
-  orderBy: Key
-): (
-  a: { [key in Key]: number | string },
-  b: { [key in Key]: number | string }
-) => number {
-  return order === "desc"
-    ? (a, b) => descendingComparator(a, b, orderBy)
-    : (a, b) => -descendingComparator(a, b, orderBy);
-}
+  return (
+    <div>
+      <Box sx={{ textAlign: `right`, marginBottom: `30px` }}>
+        <DownloadButton
+          rows={rows}
+          columns={getDownloadColumns}
+          filename={getDownloadFileName}
+        />
+      </Box>
+      <Box>
+        <SearchBar value={searched} onChange={onChange} />
+        <Box>
+          <TableGrid
+            gridRows={rows}
+            gridColumns={getColumns}
+            gridDesktopColumns={getDesktopColumns}
+            gridTabletColumns={getTabletColumns}
+            gridMobileColumns={getMobileColumns}
+            checkboxEnable={checkboxEnable}
+            rowAction={(rowData: any) => clickableRow(rowData.row)}
+            gridClass="datagrid-table"
+          />
+        </Box>
+      </Box>
+    </div>
+  );
+};
+export default Table;
