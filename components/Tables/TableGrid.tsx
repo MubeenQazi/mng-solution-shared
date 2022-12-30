@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
-import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import SortingIcon from "./sortingicon.svg";
 import "./Table.scss";
 
 const TableGrid = ({
@@ -50,8 +49,8 @@ const TableGrid = ({
       onRowClick={rowAction}
       className={gridClass}
       components={{
-        ColumnSortedAscendingIcon: ArrowDropUpIcon,
-        ColumnSortedDescendingIcon: ArrowDropDownIcon,
+        ColumnSortedAscendingIcon: SortingIcon,
+        ColumnSortedDescendingIcon: SortingIcon,
       }}
     />
   );
