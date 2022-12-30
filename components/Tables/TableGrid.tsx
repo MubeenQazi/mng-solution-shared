@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import SortingIcon from "sortingIcon.svg";
+import SortingIcon from "./sortingIcon.svg";
 import "./Table.scss";
 
 const TableGrid = ({
