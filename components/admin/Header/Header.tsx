@@ -35,7 +35,7 @@ const Header = () => {
 
   React.useEffect(() => {
     if (sessionStorage.getItem("expires_on") === null) {
-      navigate("./app/login?e=unauthorized");
+      // navigate("./app/login?e=unauthorized");
     }
   }, [navigate]);
 
