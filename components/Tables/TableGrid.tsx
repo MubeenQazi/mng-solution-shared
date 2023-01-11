@@ -36,6 +36,7 @@ const SortingIcon = () => {
     </svg>
   );
 };
+
 const TableGrid = ({
   gridRows,
   gridColumns,
